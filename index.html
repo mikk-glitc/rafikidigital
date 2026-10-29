@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rafiki Digital</title>
-<meta name="description" content="Rafiki Digital er eit lite norsk selskap i Bekkjarvik som lagar digitale vegvisarar til norsk natur og kultur.">
+<meta name="description" content="Rafiki Digital er eit lite norsk selskap i Bekkjarvik som lagar appar og digitale verktøy for kvardagen og friluftslivet.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
   .land { position: relative; height: min(78vh, 720px); min-height: 440px; overflow: hidden; }
   .land svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .namn {
-    position: absolute; left: 0; right: 0; top: 14%;
+    position: absolute; left: 0; right: 0; top: 10%;
     max-width: 62rem; margin: 0 auto; padding: 0 1.5rem;
   }
   .namn h1 {
@@ -48,11 +48,16 @@
     line-height: .95;
     letter-spacing: -.02em;
     color: var(--fjord);
+    text-shadow: 0 0 14px var(--himmel);
   }
   .namn p {
     margin: 1.1rem 0 0;
     max-width: 26rem;
     font-style: italic;
+    font-weight: 400;
+    color: #1F2F36;
+    /* eit mjukt lag av himmelfarge bak teksten, så han er lett å lese over fjella */
+    text-shadow: 0 0 2px var(--himmel), 0 0 10px var(--himmel), 0 0 18px var(--himmel);
     font-size: clamp(1.15rem, 2.4vw, 1.45rem);
     line-height: 1.45;
   }
@@ -164,24 +169,24 @@
 
   <div class="namn">
     <h1>Rafiki Digital</h1>
-    <p>Digitale vegvisarar til norsk natur og kultur.</p>
+    <p>Appar og digitale verktøy, laga på Vestlandet.</p>
   </div>
 </header>
 
 <main>
   <div class="tekst">
     <h2>Om oss</h2>
-    <p>Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar som hjelper folk å finne fram, ferdast trygt og forstå staden dei står på: kvar stien går, når det er lurt å snu, og forteljingane som høyrer landskapet til.</p>
-    <p>Rafiki tyder venn på swahili. Det er det vi vil vere for den som reiser: ein venn med lokalkunnskap i lomma.</p>
+    <p>Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar og digitale verktøy som gjer kvardagen litt enklare, anten det gjeld å halde orden på helsa, planleggje ein tur i fjellet eller finne fram på ein ny stad.</p>
+    <p>Rafiki tyder venn på swahili. Det er det vi vil at appane våre skal vere: ein venn i lomma som er til å stole på.</p>
 
     <h2>Slik arbeider vi</h2>
     <dl class="prinsipp">
       <dt>Kjelder framfor gjetting</dt>
-      <dd>Stader, høgder og prisar hentar vi frå offisielle kjelder, og vi seier ifrå når noko er usikkert.</dd>
-      <dt>Laga for fjellet</dt>
-      <dd>Appane fungerer utan nett, der dekninga sluttar.</dd>
+      <dd>Det vi skriv, byggjer på offisielle og fagleg sikre kjelder, og vi seier ifrå når noko er usikkert.</dd>
+      <dt>Enkelt å bruke</dt>
+      <dd>Appane skal vere lette å forstå, også for den som ikkje er glad i teknologi, og dei skal fungere når nettet er borte.</dd>
       <dt>Det du gjer, blir hjå deg</dt>
-      <dd>Vi samlar ikkje inn posisjon eller persondata. Turane og notata dine blir på telefonen.</dd>
+      <dd>Vi samlar ikkje inn meir data enn appen treng. Det du legg inn, blir på telefonen din.</dd>
     </dl>
 
     <h2>Appar</h2>
@@ -199,7 +204,7 @@
 
     <div class="english" lang="en">
       <h2>In English</h2>
-      <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast. We make apps that help travellers find their way, stay safe and understand the places they visit in Norwegian nature. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
+      <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast of Norway. We make apps and digital tools for everyday life and the outdoors, built to be simple, reliable and respectful of your data. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
     </div>
   </div>
 </main>
