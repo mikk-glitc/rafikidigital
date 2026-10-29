@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="nn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafiki Digital</title>
+<meta name="description" content="Rafiki Digital er eit lite norsk selskap i Bekkjarvik som lagar digitale vegvisarar til norsk natur og kultur.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Palett henta frå nasjonalromantisk fjordmåleri: kveldshimmel, skodde, skifer, furu og eit glimt av sol. */
+  :root {
+    --himmel: #DDE5E4;   /* blek kveldshimmel, bakgrunn */
+    --skodde: #B9C8C9;   /* fjerne fjell i dis */
+    --skifer: #4E6066;   /* nære fjellsider */
+    --fjord:  #2C3E46;   /* djup fjord, tekst */
+    --furu:   #26382F;   /* skog i forgrunnen */
+    --sol:    #C99A4B;   /* lyset på toppane, berre sparsamt */
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--himmel);
+    color: var(--fjord);
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 300;
+    font-size: 1.1875rem;
+    line-height: 1.7;
+  }
+  a { color: var(--fjord); text-decoration-color: var(--sol); text-underline-offset: .2em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--sol); outline-offset: 3px; }
+
+  /* Landskapet: fjella lengst bak går over i eit rutenett av punkt, der naturen møter det digitale. */
+  .land { position: relative; height: min(78vh, 720px); min-height: 440px; overflow: hidden; }
+  .land svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .namn {
+    position: absolute; left: 0; right: 0; top: 14%;
+    max-width: 62rem; margin: 0 auto; padding: 0 1.5rem;
+  }
+  .namn h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: clamp(3rem, 9vw, 6.75rem);
+    line-height: .95;
+    letter-spacing: -.02em;
+    color: var(--fjord);
+  }
+  .namn p {
+    margin: 1.1rem 0 0;
+    max-width: 26rem;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+    line-height: 1.45;
+  }
+
+  main { background: var(--furu); color: #E4EAE6; }
+  main a { color: #E4EAE6; }
+  .tekst { max-width: 38rem; margin: 0 auto; padding: 1.5rem 1.5rem 1rem; }
+  .tekst h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 3.2rem 0 .8rem; color: #F2F4F1; }
+  .tekst h2:first-child { margin-top: 0; }
+  .tekst p { margin: 0 0 1.1rem; }
+  dl.prinsipp { margin: 1.4rem 0 0; }
+  dl.prinsipp dt { font-weight: 600; color: #F2F4F1; margin-top: 1.1rem; }
+  dl.prinsipp dd { margin: .15rem 0 0; }
+
+  .kontakt { display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1.5rem; margin: 1rem 0 0; }
+  .kontakt dt { color: #A9BDB2; }
+  .kontakt dd { margin: 0; }
+
+  .english { margin-top: 3.6rem; padding-top: 1.6rem; border-top: 1px solid rgba(228,234,230,.22); font-size: 1.05rem; color: #C6D2CB; }
+  .english h2 { font-size: 1.25rem; margin: 0 0 .4rem; }
+
+  footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
+
+  @media (max-width: 34rem) {
+    body { font-size: 1.0625rem; }
+    .kontakt { grid-template-columns: 1fr; gap: 0; }
+    .kontakt dt { margin-top: .7rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="land">
+  <svg viewBox="0 0 1440 720" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="kveld" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#E9EEEC"/>
+        <stop offset=".55" stop-color="#DDE5E4"/>
+        <stop offset="1" stop-color="#CFDAD9"/>
+      </linearGradient>
+      <!-- digitale punkt: rutenettet som dei fjerne fjella er laga av -->
+      <pattern id="punkt" width="9" height="9" patternUnits="userSpaceOnUse">
+        <rect x="3" y="3" width="3" height="3" fill="#9FB2B4"/>
+      </pattern>
+      <pattern id="punkt-tett" width="6" height="6" patternUnits="userSpaceOnUse">
+        <rect x="2" y="2" width="2.4" height="2.4" fill="#8FA4A7"/>
+      </pattern>
+      <linearGradient id="fjellV" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7F9194"/>
+        <stop offset="1" stop-color="#4E6066"/>
+      </linearGradient>
+      <linearGradient id="fjellH" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#708387"/>
+        <stop offset="1" stop-color="#44565C"/>
+      </linearGradient>
+      <linearGradient id="skodde" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#DDE5E4" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#DDE5E4" stop-opacity=".4"/>
+        <stop offset="1" stop-color="#DDE5E4" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="vatn" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9DB0B2"/>
+        <stop offset="1" stop-color="#5F7479"/>
+      </linearGradient>
+    </defs>
+
+    <rect width="1440" height="720" fill="url(#kveld)"/>
+
+    <!-- sol bak fjella -->
+    <circle cx="1060" cy="318" r="46" fill="#E7CF9D" opacity=".75"/>
+
+    <!-- lengst bak: fjell av punkt -->
+    <path d="M0 360 L120 300 L210 330 L330 250 L430 300 L520 270 L610 320 L720 230 L840 300 L930 280 L1030 330 L1150 260 L1270 310 L1360 280 L1440 300 L1440 470 L0 470 Z" fill="url(#punkt)"/>
+    <!-- neste rekkje: tettare punkt, nesten heil -->
+    <path d="M0 400 L90 370 L200 395 L300 340 L410 390 L500 360 L600 405 L690 350 L800 400 L900 375 L1000 410 L1110 345 L1230 400 L1330 370 L1440 395 L1440 500 L0 500 Z" fill="url(#punkt-tett)"/>
+    <!-- skodde som legg seg over punkta -->
+    <rect x="0" y="380" width="1440" height="120" fill="#DDE5E4" opacity=".45"/>
+
+    <!-- fjellsidene ned mot fjorden, lyse på toppen og mørkare mot vatnet -->
+    <path d="M480 505 L496 499 L512 501 L528 494 L544 493 L560 490 L575 487 L590 489 L605 485 L620 487 L635 483 L650 484 L666 483 L681 484 L697 489 L713 488 L729 486 L744 490 L760 488 L774 487 L789 488 L803 486 L817 482 L831 487 L846 481 L860 482 L876 486 L892 486 L908 489 L924 490 L940 495 L955 498 L970 498 L985 503 L1000 505 L1000 520 L480 520 Z" fill="#8A9C9F"/>
+    <path d="M0 470 L20 458 L40 450 L60 432 L78 436 L96 441 L114 440 L132 448 L150 452 L170 444 L190 423 L210 414 L230 399 L250 392 L270 403 L290 405 L310 425 L330 428 L348 426 L366 421 L384 412 L402 406 L420 408 L440 413 L460 424 L480 435 L500 442 L520 458 L540 467 L560 478 L580 485 L600 493 L620 498 L640 505 L640 520 L0 520 Z" fill="url(#fjellV)"/>
+    <path d="M800 505 L820 496 L840 485 L860 485 L880 470 L905 467 L930 455 L950 446 L970 438 L990 432 L1010 428 L1030 436 L1050 437 L1070 447 L1090 448 L1108 443 L1126 432 L1144 412 L1162 405 L1180 398 L1200 408 L1220 424 L1240 427 L1260 438 L1278 436 L1296 433 L1314 423 L1332 417 L1350 418 L1368 429 L1386 432 L1404 430 L1422 437 L1440 446 L1440 520 L800 520 Z" fill="url(#fjellH)"/>
+
+    <!-- fjorden: roleg vatn med lange, flate linjer -->
+    <rect x="0" y="505" width="1440" height="160" fill="url(#vatn)"/>
+    <!-- skodde langs strandkanten -->
+    <rect x="0" y="490" width="1440" height="30" fill="url(#skodde)"/>
+    <g stroke="#DDE5E4" stroke-width="1.2" opacity=".55">
+      <line x1="140" y1="528" x2="430" y2="528"/>
+      <line x1="610" y1="541" x2="980" y2="541"/>
+      <line x1="1040" y1="530" x2="1180" y2="530"/>
+      <line x1="260" y1="556" x2="520" y2="556"/>
+      <line x1="820" y1="566" x2="1290" y2="566"/>
+      <line x1="60" y1="580" x2="300" y2="580"/>
+    </g>
+    <!-- solstripa i vatnet -->
+    <g stroke="#E7CF9D" stroke-width="2" opacity=".7">
+      <line x1="1030" y1="520" x2="1090" y2="520"/>
+      <line x1="1040" y1="534" x2="1080" y2="534"/>
+      <line x1="1048" y1="548" x2="1072" y2="548"/>
+    </g>
+
+    <!-- forgrunnen: granskog og berg, same farge som resten av sida -->
+    <path d="M0 640 L33 638 L67 641 L100 636 L133 635 L167 636 L200 632 L231 631 L263 639 L294 641 L326 638 L357 640 L389 646 L420 646 L451 642 L483 647 L514 645 L546 641 L577 638 L609 634 L640 636 L671 641 L703 637 L734 643 L766 641 L797 647 L829 647 L860 648 L891 643 L923 646 L954 639 L986 638 L1017 638 L1049 639 L1080 634 L1111 633 L1143 640 L1174 635 L1206 635 L1237 638 L1269 640 L1300 642 L1335 638 L1370 638 L1405 638 L1440 636 L1440 720 L0 720 Z" fill="#26382F"/>
+    <g fill="#26382F">
+      <path d="M30.0 568.1 L33.1 580.0 L31.4 575.5 L36.4 592.0 L32.9 587.4 L38.9 603.9 L34.0 599.4 L42.0 615.9 L35.4 611.3 L44.6 627.8 L36.6 623.3 L45.5 639.8 L37.0 635.2 L32.1 646.0 L27.9 646.0 L23.0 635.2 L14.5 639.8 L23.4 623.3 L15.4 627.8 L24.6 611.3 L18.0 615.9 L26.0 599.4 L21.1 603.9 L27.1 587.4 L23.6 592.0 L28.6 575.5 L26.9 580.0 Z"/><path d="M62.0 573.9 L64.7 585.0 L63.2 580.7 L67.2 596.0 L64.3 591.8 L70.2 607.1 L65.7 602.9 L70.6 618.1 L65.9 613.9 L74.7 629.2 L67.7 625.0 L76.7 640.2 L68.6 636.0 L63.8 646.0 L60.2 646.0 L55.4 636.0 L47.3 640.2 L56.3 625.0 L49.3 629.2 L58.1 613.9 L53.4 618.1 L58.3 602.9 L53.8 607.1 L59.7 591.8 L56.8 596.0 L60.8 580.7 L59.3 585.0 Z"/><path d="M96.0 532.2 L99.2 549.6 L97.4 543.0 L101.0 567.1 L98.2 560.4 L104.5 584.5 L99.8 577.9 L107.9 602.0 L101.3 595.3 L111.4 619.4 L102.9 612.8 L113.8 636.9 L104.0 630.3 L98.1 646.0 L93.9 646.0 L88.0 630.3 L78.2 636.9 L89.1 612.8 L80.6 619.4 L90.7 595.3 L84.1 602.0 L92.2 577.9 L87.5 584.5 L93.8 560.4 L91.0 567.1 L94.6 543.0 L92.8 549.6 Z"/><path d="M118.0 533.8 L121.7 551.0 L119.7 544.4 L124.4 568.2 L120.9 561.6 L128.5 585.4 L122.7 578.9 L132.7 602.6 L124.6 596.1 L136.3 619.8 L126.2 613.3 L137.6 637.0 L126.8 630.5 L120.5 646.0 L115.5 646.0 L109.2 630.5 L98.4 637.0 L109.8 613.3 L99.7 619.8 L111.4 596.1 L103.3 602.6 L113.3 578.9 L107.5 585.4 L115.1 561.6 L111.6 568.2 L116.3 544.4 L114.3 551.0 Z"/><path d="M150.0 528.6 L153.5 546.6 L151.6 539.7 L157.1 564.6 L153.2 557.7 L159.9 582.6 L154.5 575.7 L164.0 600.6 L156.3 593.7 L167.6 618.6 L157.9 611.7 L168.3 636.6 L158.2 629.8 L152.5 646.0 L147.5 646.0 L141.8 629.8 L131.7 636.6 L142.1 611.7 L132.4 618.6 L143.7 593.7 L136.0 600.6 L145.5 575.7 L140.1 582.6 L146.8 557.7 L142.9 564.6 L148.4 539.7 L146.5 546.6 Z"/><path d="M1090.0 537.6 L1093.9 554.3 L1091.8 547.9 L1097.6 570.9 L1093.4 564.5 L1100.4 587.5 L1094.7 581.2 L1105.1 604.1 L1096.8 597.8 L1108.2 620.7 L1098.2 614.4 L1111.1 637.3 L1099.5 631.0 L1092.6 646.0 L1087.4 646.0 L1080.5 631.0 L1068.9 637.3 L1081.8 614.4 L1071.8 620.7 L1083.2 597.8 L1074.9 604.1 L1085.3 581.2 L1079.6 587.5 L1086.6 564.5 L1082.4 570.9 L1088.2 547.9 L1086.1 554.3 Z"/><path d="M1122.0 525.7 L1124.7 544.1 L1123.2 537.1 L1126.5 562.6 L1124.0 555.6 L1129.8 581.0 L1125.5 574.0 L1132.1 599.5 L1126.5 592.5 L1133.8 617.9 L1127.3 610.9 L1138.0 636.4 L1129.2 629.4 L1123.9 646.0 L1120.1 646.0 L1114.8 629.4 L1106.0 636.4 L1116.7 610.9 L1110.2 617.9 L1117.5 592.5 L1111.9 599.5 L1118.5 574.0 L1114.2 581.0 L1120.0 555.6 L1117.5 562.6 L1120.8 537.1 L1119.3 544.1 Z"/><path d="M1150.0 546.2 L1153.5 561.5 L1151.6 555.6 L1155.9 576.8 L1152.6 571.0 L1158.2 592.1 L1153.7 586.3 L1161.9 607.4 L1155.4 601.6 L1166.4 622.7 L1157.4 616.9 L1167.4 638.0 L1157.8 632.2 L1152.3 646.0 L1147.7 646.0 L1142.2 632.2 L1132.6 638.0 L1142.6 616.9 L1133.6 622.7 L1144.6 601.6 L1138.1 607.4 L1146.3 586.3 L1141.8 592.1 L1147.4 571.0 L1144.1 576.8 L1148.4 555.6 L1146.5 561.5 Z"/><path d="M1190.0 565.8 L1193.6 578.1 L1191.6 573.4 L1196.8 590.4 L1193.1 585.7 L1201.4 602.7 L1195.2 598.0 L1203.3 615.0 L1196.0 610.3 L1208.1 627.3 L1198.1 622.6 L1209.2 639.6 L1198.6 634.9 L1192.6 646.0 L1187.4 646.0 L1181.4 634.9 L1170.8 639.6 L1181.9 622.6 L1171.9 627.3 L1184.0 610.3 L1176.7 615.0 L1184.8 598.0 L1178.6 602.7 L1186.9 585.7 L1183.2 590.4 L1188.4 573.4 L1186.4 578.1 Z"/><path d="M1230.0 550.1 L1233.7 564.8 L1231.7 559.3 L1237.4 579.5 L1233.3 573.9 L1239.8 594.2 L1234.4 588.6 L1243.7 608.9 L1236.2 603.3 L1246.0 623.6 L1237.2 618.0 L1248.2 638.3 L1238.2 632.7 L1232.5 646.0 L1227.5 646.0 L1221.8 632.7 L1211.8 638.3 L1222.8 618.0 L1214.0 623.6 L1223.8 603.3 L1216.3 608.9 L1225.6 588.6 L1220.2 594.2 L1226.7 573.9 L1222.6 579.5 L1228.3 559.3 L1226.3 564.8 Z"/><path d="M1262.0 546.2 L1265.7 561.5 L1263.7 555.7 L1269.1 576.8 L1265.2 571.0 L1273.3 592.1 L1267.1 586.3 L1274.8 607.4 L1267.8 601.6 L1277.5 622.7 L1269.0 616.9 L1282.1 638.0 L1271.0 632.2 L1264.5 646.0 L1259.5 646.0 L1253.0 632.2 L1241.9 638.0 L1255.0 616.9 L1246.5 622.7 L1256.2 601.6 L1249.2 607.4 L1256.9 586.3 L1250.7 592.1 L1258.8 571.0 L1254.9 576.8 L1260.3 555.7 L1258.3 561.5 Z"/><path d="M1300.0 559.5 L1302.6 572.8 L1301.2 567.7 L1305.5 586.0 L1302.5 581.0 L1308.0 599.3 L1303.6 594.2 L1310.2 612.5 L1304.6 607.5 L1314.6 625.8 L1306.6 620.8 L1318.1 639.1 L1308.1 634.0 L1302.0 646.0 L1298.0 646.0 L1291.9 634.0 L1281.9 639.1 L1293.4 620.8 L1285.4 625.8 L1295.4 607.5 L1289.8 612.5 L1296.4 594.2 L1292.0 599.3 L1297.5 581.0 L1294.5 586.0 L1298.8 567.7 L1297.4 572.8 Z"/><path d="M1336.0 548.9 L1338.2 563.7 L1337.0 558.1 L1341.5 578.6 L1338.5 573.0 L1342.7 593.5 L1339.0 587.9 L1346.6 608.4 L1340.8 602.8 L1348.8 623.3 L1341.8 617.7 L1350.4 638.2 L1342.5 632.6 L1337.9 646.0 L1334.1 646.0 L1329.5 632.6 L1321.6 638.2 L1330.2 617.7 L1323.2 623.3 L1331.2 602.8 L1325.4 608.4 L1333.0 587.9 L1329.3 593.5 L1333.5 573.0 L1330.5 578.6 L1335.0 558.1 L1333.8 563.7 Z"/><path d="M1372.0 528.5 L1374.2 546.5 L1373.0 539.7 L1376.9 564.5 L1374.2 557.7 L1378.5 582.6 L1374.9 575.7 L1382.7 600.6 L1376.8 593.7 L1383.5 618.6 L1377.2 611.7 L1385.4 636.6 L1378.0 629.7 L1373.8 646.0 L1370.2 646.0 L1366.0 629.7 L1358.6 636.6 L1366.8 611.7 L1360.5 618.6 L1367.2 593.7 L1361.3 600.6 L1369.1 575.7 L1365.5 582.6 L1369.8 557.7 L1367.1 564.5 L1371.0 539.7 L1369.8 546.5 Z"/><path d="M1408.0 573.2 L1411.1 584.3 L1409.4 580.1 L1414.5 595.5 L1410.9 591.3 L1417.8 606.7 L1412.4 602.4 L1421.6 617.8 L1414.1 613.6 L1425.6 629.0 L1415.9 624.8 L1427.8 640.2 L1416.9 635.9 L1410.3 646.0 L1405.7 646.0 L1399.1 635.9 L1388.2 640.2 L1400.1 624.8 L1390.4 629.0 L1401.9 613.6 L1394.4 617.8 L1403.6 602.4 L1398.2 606.7 L1405.1 591.3 L1401.5 595.5 L1406.6 580.1 L1404.9 584.3 Z"/><path d="M1436.0 564.0 L1438.7 576.6 L1437.2 571.8 L1441.2 589.2 L1438.3 584.4 L1444.9 601.7 L1440.0 597.0 L1448.6 614.3 L1441.7 609.5 L1449.7 626.9 L1442.1 622.1 L1452.8 639.4 L1443.6 634.7 L1438.2 646.0 L1433.8 646.0 L1428.4 634.7 L1419.2 639.4 L1429.9 622.1 L1422.3 626.9 L1430.3 609.5 L1423.4 614.3 L1432.0 597.0 L1427.1 601.7 L1433.7 584.4 L1430.8 589.2 L1434.8 571.8 L1433.3 576.6 Z"/>
+    </g>
+  </svg>
+
+  <div class="namn">
+    <h1>Rafiki Digital</h1>
+    <p>Digitale vegvisarar til norsk natur og kultur.</p>
+  </div>
+</header>
+
+<main>
+  <div class="tekst">
+    <h2>Om oss</h2>
+    <p>Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar som hjelper folk å finne fram, ferdast trygt og forstå staden dei står på: kvar stien går, når det er lurt å snu, og forteljingane som høyrer landskapet til.</p>
+    <p>Rafiki tyder venn på swahili. Det er det vi vil vere for den som reiser: ein venn med lokalkunnskap i lomma.</p>
+
+    <h2>Slik arbeider vi</h2>
+    <dl class="prinsipp">
+      <dt>Kjelder framfor gjetting</dt>
+      <dd>Stader, høgder og prisar hentar vi frå offisielle kjelder, og vi seier ifrå når noko er usikkert.</dd>
+      <dt>Laga for fjellet</dt>
+      <dd>Appane fungerer utan nett, der dekninga sluttar.</dd>
+      <dt>Det du gjer, blir hjå deg</dt>
+      <dd>Vi samlar ikkje inn posisjon eller persondata. Turane og notata dine blir på telefonen.</dd>
+    </dl>
+
+    <h2>Appar</h2>
+    <p>Dei første appane våre kjem på Google Play snart. Dei blir lista her når dei er ute.</p>
+
+    <h2>Kontakt</h2>
+    <dl class="kontakt">
+      <dt>E-post</dt>
+      <dd><a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a></dd>
+      <dt>Org.nr.</dt>
+      <dd>938 727 856</dd>
+      <dt>Stad</dt>
+      <dd>5397 Bekkjarvik, Noreg</dd>
+    </dl>
+
+    <div class="english" lang="en">
+      <h2>In English</h2>
+      <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast. We make apps that help travellers find their way, stay safe and understand the places they visit in Norwegian nature. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  RAFIKI - DIGITAL - ELHOLM, enkeltpersonføretak, org.nr. 938 727 856
+</footer>
+
+</body>
+</html>
