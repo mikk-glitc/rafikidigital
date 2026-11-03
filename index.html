@@ -38,7 +38,7 @@
   .land { position: relative; height: min(78vh, 720px); min-height: 440px; overflow: hidden; }
   .land svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .namn {
-    position: absolute; left: 0; right: 0; top: 10%;
+    position: absolute; left: 0; right: 0; top: 17%;
     max-width: 62rem; margin: 0 auto; padding: 0 1.5rem;
   }
   .namn h1 {
@@ -67,6 +67,7 @@
   .tekst { max-width: 38rem; margin: 0 auto; padding: 1.5rem 1.5rem 1rem; }
   .tekst h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 3.2rem 0 .8rem; color: #F2F4F1; }
   .tekst h2:first-child { margin-top: 0; }
+  .english, .tekst h2[id] { scroll-margin-top: 1rem; }
   .tekst p { margin: 0 0 1.1rem; }
   dl.prinsipp { margin: 1.4rem 0 0; }
   dl.prinsipp dt { font-weight: 600; color: #F2F4F1; margin-top: 1.1rem; }
@@ -78,6 +79,35 @@
 
   .english { margin-top: 3.6rem; padding-top: 1.6rem; border-top: 1px solid rgba(228,234,230,.22); font-size: 1.05rem; color: #C6D2CB; }
   .english h2 { font-size: 1.25rem; margin: 0 0 .4rem; }
+
+
+  /* Meny: same fargar som teksten over fjella */
+  .meny { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+  .meny .inn { max-width: 62rem; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .meny .merke { font-weight: 600; font-size: 1.05rem; text-decoration: none; letter-spacing: .01em; }
+  .meny ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .3rem 1.4rem; flex-wrap: wrap; }
+  .meny ul a { text-decoration: none; font-size: 1rem; font-weight: 400; color: var(--fjord); text-shadow: 0 0 8px var(--himmel); }
+  .meny ul a:hover { text-decoration: underline; text-decoration-color: var(--sol); }
+
+  /* Appar: eitt kort per app. Fleire appar = fleire kort i same rutenett. */
+  .appar { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin: 1.4rem 0 0; }
+  .app { display: flex; flex-direction: column; background: rgba(228,234,230,.06); border: 1px solid rgba(228,234,230,.18); border-radius: 14px; padding: 1.2rem 1.25rem 1.1rem; }
+  .app .topp { display: flex; gap: .9rem; align-items: center; margin-bottom: .7rem; }
+  .app img { width: 52px; height: 52px; border-radius: 12px; flex: none; }
+  .app h3 { margin: 0; font-weight: 400; font-size: 1.3rem; line-height: 1.2; color: #F2F4F1; }
+  .app .merk { display: inline-block; margin-top: .25rem; font-size: .82rem; font-style: italic; color: var(--sol); }
+  .app p { margin: 0 0 .9rem; font-size: 1.02rem; line-height: 1.6; flex: 1; }
+  .app .lenkjer { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: .98rem; }
+  .app.kjem { background: transparent; border-style: dashed; }
+  .app.kjem p { color: #A9BDB2; }
+  .tekst h2[id] { scroll-margin-top: 1rem; }
+  html { scroll-behavior: smooth; }
+
+  @media (max-width: 34rem) {
+    .meny .inn { padding: .9rem 1.2rem; }
+    .meny ul { gap: .2rem 1rem; }
+    .meny ul a { font-size: .95rem; }
+  }
 
   footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
 
@@ -91,6 +121,18 @@
 <body>
 
 <header class="land">
+  <nav class="meny" aria-label="Meny">
+    <div class="inn">
+      <a class="merke" href="/">Rafiki Digital</a>
+      <ul>
+        <li><a href="#appar">Appar</a></li>
+        <li><a href="#om">Om oss</a></li>
+        <li><a href="#slik">Slik arbeider vi</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#english" lang="en">English</a></li>
+      </ul>
+    </div>
+  </nav>
   <svg viewBox="0 0 1440 720" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="kveld" x1="0" y1="0" x2="0" y2="1">
@@ -175,11 +217,28 @@
 
 <main>
   <div class="tekst">
-    <h2>Om oss</h2>
+    <h2 id="appar">Appar</h2>
+    <p>Appane våre kjem først på Google Play, og seinare på iPhone.</p>
+    <div class="appar">
+      <article class="app">
+        <div class="topp">
+          <img src="diabetes/icon.png" alt="" width="52" height="52">
+          <div><h3>Rafiki – Diabetes Logbook</h3><span class="merk">Kjem snart på Google Play</span></div>
+        </div>
+        <p>Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
+        <div class="lenkjer"><a href="diabetes/">Om appen</a><a href="diabetes/privacy.html">Personvern</a></div>
+      </article>
+      <article class="app kjem">
+        <div class="topp"><div><h3>Fleire appar</h3><span class="merk">Under arbeid</span></div></div>
+        <p>Nye appar for helse, kvardag og friluftsliv blir lista her når dei er klare.</p>
+      </article>
+    </div>
+
+    <h2 id="om">Om oss</h2>
     <p>Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar og digitale verktøy som gjer kvardagen litt enklare, anten det gjeld å halde orden på helsa, planleggje ein tur i fjellet eller finne fram på ein ny stad.</p>
     <p>Rafiki tyder venn på swahili. Det er det vi vil at appane våre skal vere: ein venn i lomma som er til å stole på.</p>
 
-    <h2>Slik arbeider vi</h2>
+    <h2 id="slik">Slik arbeider vi</h2>
     <dl class="prinsipp">
       <dt>Kjelder framfor gjetting</dt>
       <dd>Det vi skriv, byggjer på offisielle og fagleg sikre kjelder, og vi seier ifrå når noko er usikkert.</dd>
@@ -189,10 +248,8 @@
       <dd>Vi samlar ikkje inn meir data enn appen treng. Det du legg inn, blir på telefonen din.</dd>
     </dl>
 
-    <h2>Appar</h2>
-    <p>Dei første appane våre kjem på Google Play snart. Dei blir lista her når dei er ute.</p>
 
-    <h2>Kontakt</h2>
+    <h2 id="kontakt">Kontakt</h2>
     <dl class="kontakt">
       <dt>E-post</dt>
       <dd><a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a></dd>
@@ -202,9 +259,9 @@
       <dd>5397 Bekkjarvik, Noreg</dd>
     </dl>
 
-    <div class="english" lang="en">
+    <div class="english" id="english" lang="en">
       <h2>In English</h2>
-      <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast of Norway. We make apps and digital tools for everyday life and the outdoors, built to be simple, reliable and respectful of your data. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
+      <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast of Norway. We make apps and digital tools for everyday life and the outdoors, built to be simple, reliable and respectful of your data. Our first app is <a href="diabetes/">Rafiki – Diabetes Logbook</a>, a free logbook for people living with diabetes, made for Africa. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
     </div>
   </div>
 </main>
