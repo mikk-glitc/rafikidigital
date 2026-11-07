@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "note": "Nordnorsk Vinterguide: hvem som får overnattingsklikk. test.cjShare 0.5 = halve telefonene til Booking via CJ, halve til Stay22. Fjern test når vinneren er klar (minst 4 uker og 200 klikk per gruppe).",
+  "stay": { "default": "cj", "byRegion": {}, "test": { "cjShare": 0.5 } },
+  "cjBooking": { "NO": "13323638", "SE": "13386174", "FI": "13375722", "DK": "13323638", "*": "13323638" },
+  "cjTaxi": { "*": "17327180" }
+}
