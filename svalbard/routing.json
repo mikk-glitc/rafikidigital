@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "note": "Svalbard-guiden: hvem som får overnattingsklikk. Stay22 til appen har egen CJ-property (pid i src/config.ts); appen bruker uansett Stay22 så lenge pid mangler.",
+  "stay": {
+    "default": "stay22",
+    "byRegion": {},
+    "test": null
+  },
+  "cjBooking": {
+    "NO": "13323638",
+    "SE": "13386174",
+    "FI": "13375722",
+    "DK": "13323638",
+    "*": "13323638"
+  },
+  "cjTaxi": {
+    "*": "17327180"
+  }
+}
