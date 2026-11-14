@@ -23,12 +23,12 @@
   a:focus-visible { outline: 2px solid var(--sol); outline-offset: 3px; }
 
   /* Bakgrunnsbiletet: Noreg og Afrika som smeltar saman, med hendene i midten */
-  .hand { position: relative; height: min(92vh, 900px); min-height: 460px; overflow: hidden; background: #2e4560; }
+  .hand { position: relative; height: clamp(460px, 50.7vw, 820px); overflow: hidden; background: #2e4560; }
   .hand > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   /* Mobil: eit enklare bilete i høgdeformat, der begge armane og heile hjartet får plass */
   .hand > svg.smal { display: none; }
   @media (max-width: 700px) {
-    .hand { height: min(150vw, 92vh); min-height: 420px; }
+    .hand { height: 131.7vw; min-height: 0; }
     .hand > svg.brei { display: none; }
     .hand > svg.smal { display: block; }
   }
@@ -131,7 +131,7 @@
       </ul>
     </div>
   </nav>
-  <svg class="brei" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+  <svg class="brei" viewBox="0 0 1440 730" preserveAspectRatio="xMidYMax slice" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
 <defs>
 <linearGradient id="skyV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e4560"/><stop offset="0.38" stop-color="#6f8598"/><stop offset="0.62" stop-color="#d9c39a"/><stop offset="0.7" stop-color="#f2d9a6"/></linearGradient>
 <linearGradient id="skyWarm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d2c3d" stop-opacity="0.55"/><stop offset="0.45" stop-color="#e8b878" stop-opacity="0"/><stop offset="1" stop-color="#eea85c" stop-opacity="0.55"/></linearGradient>
@@ -612,7 +612,7 @@
 <rect width="1440" height="900" fill="#c79b55" opacity="0.08" style="mix-blend-mode: multiply"/>
 <rect width="1440" height="900" fill="url(#vign)"/>
 </svg>
-  <svg class="smal" viewBox="0 0 600 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <svg class="smal" viewBox="0 0 600 790" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <defs>
 <linearGradient id="m-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b425c"/><stop offset="0.45" stop-color="#7d8fa0"/><stop offset="0.72" stop-color="#ecd3a2"/></linearGradient>
 <linearGradient id="m-warm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d2c3d" stop-opacity="0.45"/><stop offset="0.5" stop-color="#e8b878" stop-opacity="0"/><stop offset="1" stop-color="#eea85c" stop-opacity="0.55"/></linearGradient>
