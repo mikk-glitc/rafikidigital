@@ -50,11 +50,6 @@
   .tittel { position: absolute; left: 0; right: 0; top: 5.2rem; z-index: 2; max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; pointer-events: none; }
   .tittel h1 { margin: 0; font-weight: 300; font-size: clamp(2.6rem, 6.4vw, 5rem); line-height: 1; letter-spacing: -.02em; color: #F7F3EA; text-shadow: 0 2px 18px rgba(8,14,20,.6), 0 0 2px rgba(8,14,20,.4); }
 
-  /* Språkknappen */
-  .meny ul .sprak { display: inline-flex; border: 1px solid rgba(242,244,241,.5); border-radius: 999px; overflow: hidden; align-self: center; }
-  .sprak button { font: inherit; font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: #F2F4F1; background: transparent; border: 0; padding: .2rem .6rem; min-height: 32px; cursor: pointer; }
-  .sprak button[aria-pressed="true"] { background: #F2F4F1; color: var(--fjord); }
-  .sprak button:focus-visible { outline: 2px solid var(--sol); outline-offset: -2px; }
 
   /* Bloggen: sortering til venstre, innlegga til høgre */
   .blogg { max-width: 66rem; margin: 0 auto; padding: 3.2rem 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; }
@@ -62,6 +57,7 @@
   .sidemeny h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 0 0 1.2rem; color: #F2F4F1; }
   .sidemeny h3 { font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #A9BDB2; margin: 0 0 .5rem; }
   .gruppe { margin-bottom: 1.6rem; }
+  .sidemeny.tom .gruppe { display: none; }
   .val { display: flex; flex-direction: column; gap: .3rem; }
   .val button { font: inherit; font-size: 1rem; text-align: left; color: #E4EAE6; background: transparent; border: 1px solid transparent; border-radius: 10px; padding: .45rem .75rem; min-height: 44px; cursor: pointer; display: flex; justify-content: space-between; gap: .8rem; }
   .val button:hover { border-color: rgba(228,234,230,.22); }
@@ -137,7 +133,6 @@
         <li><a href="/#slik" data-t="nav.slik">Slik arbeider vi</a></li>
         <li><a href="/veldedigheit/" aria-current="page" data-t="nav.veld">Veldedigheit</a></li>
         <li><a href="/#kontakt" data-t="nav.kontakt">Kontakt</a></li>
-        <li class="sprak" role="group" aria-label="Språk / Language / Lugha"><button type="button" data-lang="nn" lang="nn" title="Norsk" aria-pressed="true">NO</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button><button type="button" data-lang="sw" lang="sw" title="Kiswahili" aria-pressed="false">SW</button></li>
       </ul>
     </div>
   </nav>
@@ -770,7 +765,7 @@ window.TEKST = {
     "hero.tittel": "A Hand from Above", "blogg.h": "Posts",
     "sort.h": "Sort", "sort.ny": "Newest first", "sort.gml": "Oldest first",
     "kat.h": "Category", "kat.alle": "All",
-    "les": "Read more", "tomt": "No posts in this category yet.",
+    "les": "Read more", "tomt": "No posts yet. The story of how the work began is coming soon.",
     "ikkje": "This post is not yet available in English, so it is shown in Norwegian.",
     "_tittel": "A Hand from Above – Rafiki Digital"
   },
@@ -779,11 +774,11 @@ window.TEKST = {
     "hero.tittel": "Mkono Kutoka Juu", "blogg.h": "Machapisho",
     "sort.h": "Panga", "sort.ny": "Mapya kwanza", "sort.gml": "Ya zamani kwanza",
     "kat.h": "Kategoria", "kat.alle": "Zote",
-    "les": "Soma zaidi", "tomt": "Bado hakuna machapisho katika kategoria hii.",
+    "les": "Soma zaidi", "tomt": "Bado hakuna machapisho. Hadithi ya jinsi kazi ilivyoanza inakuja hivi karibuni.",
     "ikkje": "Chapisho hili bado halipatikani kwa Kiswahili, kwa hivyo linaonyeshwa kwa Kinorwe.",
     "_tittel": "Mkono Kutoka Juu – Rafiki Digital"
   },
-  nn: { "kat.alle": "Alle", "les": "Les meir", "tomt": "Ingen innlegg i denne kategorien enno." }
+  nn: { "kat.alle": "Alle", "les": "Les meir", "tomt": "Ingen innlegg enno. Snart kjem forteljinga om korleis arbeidet starta." }
 };
 </script>
 <script src="../assets/sprak.js"></script>
@@ -847,6 +842,7 @@ window.TEKST = {
   function teikn() {
     if (!data) return;
     document.querySelectorAll('[data-sort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.sort === sort)); });
+    document.querySelector('.sidemeny').classList.toggle('tom', !data.innlegg.length);
     teiknKategoriar(); teiknInnlegg();
   }
 

@@ -90,11 +90,6 @@
   .meny ul a:hover { text-decoration: underline; text-decoration-color: var(--sol); }
 
 
-  /* Språkknappen øvst: NO / EN / SW. Valet følgjer med til dei andre sidene. */
-  .meny ul .sprak { display: inline-flex; border: 1px solid rgba(44,62,70,.35); border-radius: 999px; overflow: hidden; align-self: center; }
-  .sprak button { font: inherit; font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--fjord); background: transparent; border: 0; padding: .2rem .6rem; min-height: 32px; cursor: pointer; }
-  .sprak button[aria-pressed="true"] { background: var(--fjord); color: var(--himmel); }
-  .sprak button:focus-visible { outline: 2px solid var(--sol); outline-offset: -2px; }
 
   /* Appar: eitt kort per app. Fleire appar = fleire kort i same rutenett. */
   .appar { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin: 1.4rem 0 0; }
@@ -180,7 +175,6 @@ window.TEKST = {
         <li><a href="#slik" data-t="nav.slik">Slik arbeider vi</a></li>
         <li><a href="veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
         <li><a href="#kontakt" data-t="nav.kontakt">Kontakt</a></li>
-        <li class="sprak" role="group" aria-label="Språk / Language / Lugha"><button type="button" data-lang="nn" lang="nn" title="Norsk" aria-pressed="true">NO</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button><button type="button" data-lang="sw" lang="sw" title="Kiswahili" aria-pressed="false">SW</button></li>
       </ul>
     </div>
   </nav>
