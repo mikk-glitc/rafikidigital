@@ -23,7 +23,7 @@
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--himmel);
+    background: var(--furu);
     color: var(--fjord);
     font-family: "Spectral", Georgia, serif;
     font-weight: 300;
@@ -35,10 +35,10 @@
   a:focus-visible { outline: 2px solid var(--sol); outline-offset: 3px; }
 
   /* Landskapet: fjella lengst bak går over i eit rutenett av punkt, der naturen møter det digitale. */
-  .land { position: relative; height: min(78vh, 720px); min-height: 440px; overflow: hidden; }
+  .land { position: relative; height: clamp(560px, 47vw, 760px); overflow: hidden; }
   .land svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .namn {
-    position: absolute; left: 0; right: 0; top: max(17%, 7.5rem);
+    position: absolute; left: 0; right: 0; top: 7rem;
     max-width: 62rem; margin: 0 auto; padding: 0 1.5rem;
   }
   .namn h1 {
