@@ -137,7 +137,10 @@
   footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3rem 1.5rem 2.5rem; border-top: 1px solid rgba(228,234,230,.12); }
   footer p { margin: .2rem 0; }
   footer a { color: #C6D2CB; }
-  main { padding: 2.5rem 0 3.5rem; }
+  /* siste hending ligg rett under graskanten, oppe i den mørke bakken */
+  main { position: relative; margin-top: -3.6rem; padding: 0 0 3.5rem; }
+  main .tekst { padding-top: 0; }
+  .siste { margin-top: 0 !important; }
 
   @media (max-width: 34rem) {
     body { font-size: 1.0625rem; }
