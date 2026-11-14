@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="nn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appar – Rafiki Digital</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .tittel { padding-bottom: 6.5rem; }
+  .fliser { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.2rem 0 0; }
+  .flis { display: flex; flex-direction: column; background: rgba(228,234,230,.06); border: 1px solid rgba(228,234,230,.18); border-radius: 14px; padding: 1.2rem 1.25rem 1.1rem; }
+  .flis .topp { display: flex; gap: .9rem; align-items: center; margin-bottom: .7rem; }
+  .flis img { width: 52px; height: 52px; border-radius: 12px; flex: none; }
+  .flis h3 { margin: 0; font-weight: 400; font-size: 1.3rem; line-height: 1.2; color: #F2F4F1; }
+  .flis p { margin: 0 0 .9rem; font-size: 1.02rem; line-height: 1.6; flex: 1; }
+  .flis .lenkjer { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: .98rem; }
+  .flis .merk { font-size: .85rem; }
+  .tekst { max-width: 46rem; }
+  @media (min-width:35rem) and (max-width:88rem) { .band .inn { padding-right: 12rem; } }
+  @media (max-width:35rem) { .meny { padding-right: 10rem; } }
+</style>
+<script>
+window.TEKST = { en: {
+ "nav.prosjekt": "Projects",
+ "nav.appar": "Apps",
+ "nav.verktoy": "Digital tools",
+ "nav.om": "About us",
+ "nav.veld": "Charity",
+ "nav.kontakt": "Contact",
+ "s.h": "Apps",
+ "s.under": "The apps we have released.",
+ "a2.st": "In review on Google Play",
+ "a1.st": "Coming soon on Google Play",
+ "om": "About the app",
+ "pers": "Privacy",
+ "a2": "Northern lights, places, stories and safe winter travel from the Arctic Circle to Finnmark. Works offline, in nine languages. No account and no tracking.",
+ "a1": "A free logbook for people living with diabetes, and for their families. Made for Africa, in 34 languages. Everything you log stays on your phone.",
+ "_tittel": "Apps – Rafiki Digital"
+}, sw: {
+ "nav.prosjekt": "Miradi",
+ "nav.appar": "Programu",
+ "nav.verktoy": "Zana za kidijitali",
+ "nav.om": "Kuhusu sisi",
+ "nav.veld": "Hisani",
+ "nav.kontakt": "Mawasiliano",
+ "s.h": "Programu",
+ "s.under": "Programu tulizotoa.",
+ "a2.st": "Inakaguliwa kwenye Google Play",
+ "a1.st": "Inakuja hivi karibuni kwenye Google Play",
+ "om": "Kuhusu programu",
+ "pers": "Faragha",
+ "a2": "Mwanga wa kaskazini, maeneo, hadithi na safari salama wakati wa baridi kutoka Mzingo wa Aktiki hadi Finnmark. Inafanya kazi bila mtandao, kwa lugha tisa. Hakuna akaunti wala ufuatiliaji.",
+ "a1": "Daftari la bure kwa watu wanaoishi na kisukari, na kwa familia zao. Limetengenezwa kwa ajili ya Afrika, kwa lugha 34. Kila unachoandika kinabaki kwenye simu yako.",
+ "_tittel": "Programu – Rafiki Digital"
+} };
+</script>
+<script src="../assets/sprak.js" defer></script>
+</head>
+<body>
+
+<header class="band">
+  <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="kveld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9EEEC"/><stop offset="1" stop-color="#D3DDDC"/></linearGradient>
+      <pattern id="punkt" width="9" height="9" patternUnits="userSpaceOnUse"><rect x="3" y="3" width="3" height="3" fill="#9FB2B4"/></pattern>
+      <pattern id="punkt-tett" width="6" height="6" patternUnits="userSpaceOnUse"><rect x="2" y="2" width="2.4" height="2.4" fill="#8FA4A7"/></pattern>
+      <linearGradient id="fjellV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7F9194"/><stop offset="1" stop-color="#4E6066"/></linearGradient>
+      <linearGradient id="fjellH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#708387"/><stop offset="1" stop-color="#44565C"/></linearGradient>
+      <linearGradient id="vatn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DB0B2"/><stop offset="1" stop-color="#5F7479"/></linearGradient>
+    </defs>
+    <rect width="1440" height="300" fill="url(#kveld)"/>
+    <circle cx="1060" cy="150" r="30" fill="#E7CF9D" opacity=".75"/>
+    <path d="M0 190 L120 150 L210 168 L330 120 L430 150 L520 132 L610 162 L720 112 L840 150 L930 140 L1030 168 L1150 126 L1270 156 L1360 140 L1440 150 L1440 250 L0 250 Z" fill="url(#punkt)"/>
+    <path d="M0 212 L90 196 L200 210 L300 180 L410 206 L500 190 L600 214 L690 184 L800 210 L900 198 L1000 216 L1110 182 L1230 210 L1330 196 L1440 208 L1440 260 L0 260 Z" fill="url(#punkt-tett)"/>
+    <rect x="0" y="200" width="1440" height="60" fill="#DDE5E4" opacity=".45"/>
+    <path d="M0 246 L40 238 L80 228 L130 232 L190 216 L250 206 L300 214 L360 222 L420 212 L480 224 L540 238 L600 250 L640 256 L640 270 L0 270 Z" fill="url(#fjellV)"/>
+    <path d="M800 256 L860 244 L930 230 L990 222 L1050 228 L1110 230 L1150 212 L1200 210 L1260 224 L1320 216 L1380 222 L1440 228 L1440 270 L800 270 Z" fill="url(#fjellH)"/>
+    <rect x="0" y="255" width="1440" height="30" fill="url(#vatn)"/>
+    <g stroke="#DDE5E4" stroke-width="1.2" opacity=".5"><line x1="140" y1="266" x2="430" y2="266"/><line x1="610" y1="272" x2="980" y2="272"/><line x1="1040" y1="264" x2="1180" y2="264"/></g>
+    <path d="M0 282 L60 279 L120 283 L200 278 L280 281 L360 277 L440 282 L520 279 L600 284 L680 280 L760 283 L840 279 L920 282 L1000 278 L1080 281 L1160 277 L1240 282 L1320 279 L1440 281 L1440 300 L0 300 Z" fill="#26382F"/>
+  </svg>
+  <div class="inn">
+    <nav class="meny" aria-label="Meny">
+      <a class="merke" href="../">Rafiki Digital</a>
+      <ul>
+        <li><a href="../prosjekt/" data-t="nav.prosjekt">Prosjekt</a></li>
+        <li><a href="../appar/" aria-current="page" data-t="nav.appar">Appar</a></li>
+        <li><a href="../verktoy/" data-t="nav.verktoy">Digitale verktøy</a></li>
+        <li><a href="../om/" data-t="nav.om">Om oss</a></li>
+        <li><a href="../veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
+        <li><a href="../#kontakt" data-t="nav.kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="tittel">
+      <div>
+        <h1 data-t="s.h">Appar</h1>
+        <p data-t="s.under">Appane vi har lagt ut.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tekst">
+    <div class="fliser">
+      <article class="flis">
+        <div class="topp"><img src="../nordnorge/icon.png" alt="" width="52" height="52"><div><h3>Nordnorsk Vinterguide</h3><span class="merk" data-t="a2.st">Til godkjenning på Google Play</span></div></div>
+        <p data-t="a2">Nordlys, stader, historier og trygg vinter frå Polarsirkelen til Finnmark. Verkar utan nett, på ni språk. Ingen konto og inga sporing.</p>
+        <div class="lenkjer"><a href="../nordnorge/" data-t="om">Om appen</a><a href="../nordnorge/personvern.html" data-t="pers">Personvern</a></div>
+      </article>
+      <article class="flis">
+        <div class="topp"><img src="../diabetes/icon.png" alt="" width="52" height="52"><div><h3>Rafiki – Diabetes Logbook</h3><span class="merk" data-t="a1.st">Kjem snart på Google Play</span></div></div>
+        <p data-t="a1">Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
+        <div class="lenkjer"><a href="../diabetes/" data-t="om">Om appen</a><a href="../diabetes/privacy.html" data-t="pers">Personvern</a></div>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  RAFIKI - DIGITAL - ELHOLM, org.nr. 938 727 856 · <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a> · 5397 Bekkjarvik
+</footer>
+
+</body>
+</html>

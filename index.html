@@ -130,7 +130,10 @@
     .meny ul a { font-size: .95rem; }
   }
 
-  footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
+  footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3rem 1.5rem 2.5rem; border-top: 1px solid rgba(228,234,230,.12); }
+  footer p { margin: .2rem 0; }
+  footer a { color: #C6D2CB; }
+  main { padding: 2.5rem 0 3.5rem; }
 
   @media (max-width: 34rem) {
     body { font-size: 1.0625rem; }
@@ -141,41 +144,23 @@
 <script>
 window.TEKST = {
   en: {
-    "nav.om": "About us", "nav.veld": "Charity", "nav.kontakt": "Contact",
+    "nav.prosjekt": "Projects", "nav.appar": "Apps", "nav.verktoy": "Digital tools", "nav.om": "About us", "nav.veld": "Charity", "nav.kontakt": "Contact",
     "hero.tag": "Projects, digital solutions and apps.",
     "siste.h": "Latest news", "siste.dato": "10 November 2026",
     "siste.tittel": "Northern Norway Winter Guide has been sent to Google Play",
     "siste.tekst": "Our first travel app is finished and is now being reviewed by Google. The app is free until 15 December.",
     "siste.lenke": "Read more about the app",
-    "pag.h": "Ongoing projects", "pag.les": "Read more", "pag.arbeid": "In progress",
-    "pag1.h": "Svalbard Guide", "pag1.desc": "Safety, northern lights, midnight sun and places in Svalbard, all year round.",
-    "pag2.h": "Fjord and mountain guides", "pag2.desc": "Trolltunga, Preikestolen and Kjerag, and the Lysefjord.",
-    "pag3.h": "Everyday life and money", "pag3.desc": "Nyumba and Pengesirkel.",
-    "appar.h": "Apps", "app.snart": "Coming soon on Google Play", "app2.status": "In review on Google Play",
-    "app.om": "About the app", "app.pers": "Privacy",
-    "app1.desc": "A free logbook for people living with diabetes, and for their families. Made for Africa, in 34 languages. Everything you log stays on your phone.",
-    "app2.desc": "Northern lights, places, stories and safe winter travel from the Arctic Circle to Finnmark. Works offline, in nine languages. No account and no tracking.",
-    "om.h": "About us", "om.snart": "Coming soon.",
-    "kontakt.h": "Contact", "k.epost": "Email", "k.org": "Org. no.", "k.stad": "Location", "k.stadv": "5397 Bekkjarvik, Norway",
+    "k.stadv": "5397 Bekkjarvik, Norway", "k.enk": "sole proprietorship",
     "_tittel": "Rafiki Digital"
   },
   sw: {
-    "nav.om": "Kuhusu sisi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
+    "nav.prosjekt": "Miradi", "nav.appar": "Programu", "nav.verktoy": "Zana za kidijitali", "nav.om": "Kuhusu sisi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
     "hero.tag": "Miradi, suluhisho za kidijitali na programu.",
     "siste.h": "Habari mpya", "siste.dato": "10 Novemba 2026",
     "siste.tittel": "Northern Norway Winter Guide imetumwa Google Play",
     "siste.tekst": "Programu yetu ya kwanza ya safari imekamilika na sasa inakaguliwa na Google. Programu ni bure hadi tarehe 15 Desemba.",
     "siste.lenke": "Soma zaidi kuhusu programu",
-    "pag.h": "Miradi inayoendelea", "pag.les": "Soma zaidi", "pag.arbeid": "Inatengenezwa",
-    "pag1.h": "Svalbard Guide", "pag1.desc": "Usalama, mwanga wa kaskazini, jua la usiku wa manane na maeneo ya Svalbard, mwaka mzima.",
-    "pag2.h": "Miongozo ya fjord na milima", "pag2.desc": "Trolltunga, Preikestolen na Kjerag, na Lysefjord.",
-    "pag3.h": "Maisha ya kila siku na fedha", "pag3.desc": "Nyumba na Pengesirkel.",
-    "appar.h": "Programu", "app.snart": "Inakuja hivi karibuni kwenye Google Play", "app2.status": "Inakaguliwa kwenye Google Play",
-    "app.om": "Kuhusu programu", "app.pers": "Faragha",
-    "app1.desc": "Daftari la bure kwa watu wanaoishi na kisukari, na kwa familia zao. Limetengenezwa kwa ajili ya Afrika, kwa lugha 34. Kila unachoandika kinabaki kwenye simu yako.",
-    "app2.desc": "Mwanga wa kaskazini, maeneo, hadithi na safari salama wakati wa baridi kutoka Mzingo wa Aktiki hadi Finnmark. Inafanya kazi bila mtandao, kwa lugha tisa. Hakuna akaunti wala ufuatiliaji.",
-    "om.h": "Kuhusu sisi", "om.snart": "Inakuja hivi karibuni.",
-    "kontakt.h": "Mawasiliano", "k.epost": "Barua pepe", "k.org": "Nambari ya usajili", "k.stad": "Mahali", "k.stadv": "5397 Bekkjarvik, Norwe",
+    "k.stadv": "5397 Bekkjarvik, Norwe", "k.enk": "biashara ya mtu binafsi",
     "_tittel": "Rafiki Digital"
   }
 };
@@ -188,9 +173,12 @@ window.TEKST = {
   <nav class="meny" aria-label="Meny">
     <div class="inn">
       <ul>
-        <li><a href="#om" data-t="nav.om">Om oss</a></li>
-        <li><a href="#kontakt" data-t="nav.kontakt">Kontakt</a></li>
+        <li><a href="prosjekt/" data-t="nav.prosjekt">Prosjekt</a></li>
+        <li><a href="appar/" data-t="nav.appar">Appar</a></li>
+        <li><a href="verktoy/" data-t="nav.verktoy">Digitale verktøy</a></li>
+        <li><a href="om/" data-t="nav.om">Om oss</a></li>
         <li><a href="veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
+        <li><a href="#kontakt" data-t="nav.kontakt">Kontakt</a></li>
       </ul>
     </div>
   </nav>
@@ -288,66 +276,12 @@ window.TEKST = {
       <p><a href="nordnorge/" data-t="siste.lenke">Les meir om appen</a></p>
     </section>
 
-    <!-- PÅGÅANDE: tre fliser med det vi arbeider med no. -->
-    <h2 id="prosjekt" data-t="pag.h">Pågåande prosjekt</h2>
-    <div class="fliser">
-      <article class="flis">
-        <img src="svalbard/icon.png" alt="" width="44" height="44">
-        <h3 data-t="pag1.h">Svalbard-guiden</h3>
-        <p data-t="pag1.desc">Tryggleik, nordlys, midnattssol og stader på Svalbard, heile året.</p>
-        <a href="svalbard/" data-t="pag.les">Les meir</a>
-      </article>
-      <article class="flis">
-        <h3 data-t="pag2.h">Fjord- og fjellguidar</h3>
-        <p data-t="pag2.desc">Trolltunga, Preikestolen og Kjerag, og Lysefjorden.</p>
-        <span class="merk" data-t="pag.arbeid">Under arbeid</span>
-      </article>
-      <article class="flis">
-        <h3 data-t="pag3.h">Kvardag og økonomi</h3>
-        <p data-t="pag3.desc">Nyumba og Pengesirkel.</p>
-        <span class="merk" data-t="pag.arbeid">Under arbeid</span>
-      </article>
-    </div>
-
-    <!-- APPAR: det vi har lagt ut. Personvernlenkjene må bli ståande. -->
-    <h2 id="appar" data-t="appar.h">Appar</h2>
-    <div class="appar">
-      <article class="app">
-        <div class="topp">
-          <img src="nordnorge/icon.png" alt="" width="52" height="52">
-          <div><h3>Nordnorsk Vinterguide</h3><span class="merk" data-t="app2.status">Til godkjenning på Google Play</span></div>
-        </div>
-        <p data-t="app2.desc">Nordlys, stader, historier og trygg vinter frå Polarsirkelen til Finnmark. Verkar utan nett, på ni språk. Ingen konto og inga sporing.</p>
-        <div class="lenkjer"><a href="nordnorge/" data-t="app.om">Om appen</a><a href="nordnorge/personvern.html" data-t="app.pers">Personvern</a></div>
-      </article>
-      <article class="app">
-        <div class="topp">
-          <img src="diabetes/icon.png" alt="" width="52" height="52">
-          <div><h3>Rafiki – Diabetes Logbook</h3><span class="merk" data-t="app.snart">Kjem snart på Google Play</span></div>
-        </div>
-        <p data-t="app1.desc">Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
-        <div class="lenkjer"><a href="diabetes/" data-t="app.om">Om appen</a><a href="diabetes/privacy.html" data-t="app.pers">Personvern</a></div>
-      </article>
-    </div>
-
-    <!-- OM OSS: teksten kjem seinare. -->
-    <h2 id="om" data-t="om.h">Om oss</h2>
-    <p class="dempa" data-t="om.snart">Kjem snart.</p>
-
-    <h2 id="kontakt" data-t="kontakt.h">Kontakt</h2>
-    <dl class="kontakt">
-      <dt data-t="k.epost">E-post</dt>
-      <dd><a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a></dd>
-      <dt data-t="k.org">Org.nr.</dt>
-      <dd>938 727 856</dd>
-      <dt data-t="k.stad">Stad</dt>
-      <dd data-t="k.stadv">5397 Bekkjarvik, Noreg</dd>
-    </dl>
   </div>
 </main>
 
-<footer>
-  RAFIKI - DIGITAL - ELHOLM, enkeltpersonføretak, org.nr. 938 727 856
+<footer id="kontakt">
+  <p><a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a> · <span data-t="k.stadv">5397 Bekkjarvik, Noreg</span></p>
+  <p>RAFIKI - DIGITAL - ELHOLM, <span data-t="k.enk">enkeltpersonføretak</span>, org.nr. 938 727 856</p>
 </footer>
 
 </body>
