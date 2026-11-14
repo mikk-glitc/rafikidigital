@@ -27,8 +27,10 @@
   .hand > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   /* Mobil: eit enklare bilete i høgdeformat, der begge armane og heile hjartet får plass */
   .hand > svg.smal { display: none; }
+  .hand::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%; z-index: 1; pointer-events: none;
+    background: linear-gradient(rgba(38,56,47,0), rgba(38,56,47,.75) 60%, #26382F); }
   @media (max-width: 700px) {
-    .hand { height: 131.7vw; min-height: 0; }
+    .hand { height: 100.7vw; min-height: 0; }
     .hand > svg.brei { display: none; }
     .hand > svg.smal { display: block; }
   }
@@ -612,7 +614,7 @@
 <rect width="1440" height="900" fill="#c79b55" opacity="0.08" style="mix-blend-mode: multiply"/>
 <rect width="1440" height="900" fill="url(#vign)"/>
 </svg>
-  <svg class="smal" viewBox="0 0 600 790" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <svg class="smal" viewBox="0 0 600 604" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <defs>
 <linearGradient id="m-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b425c"/><stop offset="0.45" stop-color="#7d8fa0"/><stop offset="0.72" stop-color="#ecd3a2"/></linearGradient>
 <linearGradient id="m-warm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d2c3d" stop-opacity="0.45"/><stop offset="0.5" stop-color="#e8b878" stop-opacity="0"/><stop offset="1" stop-color="#eea85c" stop-opacity="0.55"/></linearGradient>
@@ -719,9 +721,11 @@
 <path d="M104,538 q2,-7 3,-12" stroke="#3f6233" stroke-width="1.6" opacity="0.8"/>
 <path d="M229,783 q-3,-9 4,-14" stroke="#3f6233" stroke-width="1.6" opacity="0.8"/>
 </g>
+<g transform="translate(0,-296)">
 <rect y="600" width="600" height="300" fill="url(#m-dark)"/>
 <g class="anim-heartbeat"><image href="hjertelys.webp" x="203.8" y="585.8" width="221.3" height="175.6"/></g>
 <image href="hender.webp" x="-123.8" y="404.8" width="756.0" height="495.2" filter="url(#m-shadow)"/>
+</g>
 </svg>
   <div class="tittel"><h1 data-t="hero.tittel">Ei hand frå oven</h1></div>
 </header>
