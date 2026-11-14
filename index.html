@@ -64,7 +64,7 @@
 
   main { background: var(--furu); color: #E4EAE6; }
   main a { color: #E4EAE6; }
-  .tekst { max-width: 38rem; margin: 0 auto; padding: 1.5rem 1.5rem 1rem; }
+  .tekst { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.5rem 1rem; }
   .tekst h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 3.2rem 0 .8rem; color: #F2F4F1; }
   .tekst h2:first-child { margin-top: 0; }
   .english, .tekst h2[id] { scroll-margin-top: 1rem; }
@@ -105,10 +105,27 @@
   .tekst h2[id] { scroll-margin-top: 1rem; }
   html { scroll-behavior: smooth; }
 
+  /* Siste hending: éi nyheit, framheva med ei tynn solstripe */
+  .siste { border-left: 3px solid var(--sol); padding: .2rem 0 .1rem 1.2rem; margin: 1rem 0 0; }
+  .siste h2 { margin-top: 0; font-size: 1rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sol); }
+  .siste .dato { margin: 0; font-size: .95rem; color: #A9BDB2; }
+  .siste h3 { margin: .1rem 0 .5rem; font-weight: 400; font-size: 1.6rem; line-height: 1.25; color: #F2F4F1; }
+
+  /* Pågåande: tre fliser side om side, under kvarandre på mobil */
+  .fliser { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; margin: 1.2rem 0 0; }
+  .flis { display: flex; flex-direction: column; background: rgba(228,234,230,.06); border: 1px solid rgba(228,234,230,.18); border-radius: 14px; padding: 1.1rem 1.1rem 1rem; }
+  .flis img { width: 44px; height: 44px; border-radius: 10px; margin-bottom: .6rem; }
+  .flis h3 { margin: 0 0 .35rem; font-weight: 400; font-size: 1.2rem; line-height: 1.2; color: #F2F4F1; }
+  .flis p { margin: 0 0 .7rem; font-size: .98rem; line-height: 1.55; flex: 1; }
+  .flis a, .flis .merk { font-size: .95rem; }
+  .flis .merk { font-style: italic; color: var(--sol); }
+  .dempa { color: #A9BDB2; font-style: italic; }
+  @media (max-width: 44rem) { .fliser { grid-template-columns: 1fr; } }
+
   @media (max-width: 34rem) {
     /* menyen går over to liner på mobil: skyv hovudoverskrifta godt ned under han */
-    .namn { top: 10.5rem; }
-    .meny .inn { padding: .9rem 1.2rem; }
+    .meny .inn { padding: .9rem 10.5rem .9rem 1.2rem; }
+    .namn { top: 8.5rem; }
     .meny ul { gap: .2rem 1rem; }
     .meny ul a { font-size: .95rem; }
   }
@@ -124,38 +141,40 @@
 <script>
 window.TEKST = {
   en: {
-    "nav.appar": "Apps", "nav.om": "About us", "nav.slik": "How we work", "nav.veld": "Charity", "nav.kontakt": "Contact",
-    "hero.tag": "Apps and digital tools, made on the west coast of Norway.",
-    "appar.h": "Apps", "appar.intro": "Our apps come to Google Play first, and later to iPhone.",
-    "app.snart": "Coming soon on Google Play", "app.om": "About the app", "app.pers": "Privacy",
+    "nav.om": "About us", "nav.veld": "Charity", "nav.kontakt": "Contact",
+    "hero.tag": "Projects, digital solutions and apps.",
+    "siste.h": "Latest news", "siste.dato": "10 November 2026",
+    "siste.tittel": "Northern Norway Winter Guide has been sent to Google Play",
+    "siste.tekst": "Our first travel app is finished and is now being reviewed by Google. The app is free until 15 December.",
+    "siste.lenke": "Read more about the app",
+    "pag.h": "Ongoing projects", "pag.les": "Read more", "pag.arbeid": "In progress",
+    "pag1.h": "Svalbard Guide", "pag1.desc": "Safety, northern lights, midnight sun and places in Svalbard, all year round.",
+    "pag2.h": "Fjord and mountain guides", "pag2.desc": "Trolltunga, Preikestolen and Kjerag, and the Lysefjord.",
+    "pag3.h": "Everyday life and money", "pag3.desc": "Nyumba and Pengesirkel.",
+    "appar.h": "Apps", "app.snart": "Coming soon on Google Play", "app2.status": "In review on Google Play",
+    "app.om": "About the app", "app.pers": "Privacy",
     "app1.desc": "A free logbook for people living with diabetes, and for their families. Made for Africa, in 34 languages. Everything you log stays on your phone.",
     "app2.desc": "Northern lights, places, stories and safe winter travel from the Arctic Circle to Finnmark. Works offline, in nine languages. No account and no tracking.",
-    "app3.h": "More apps", "app3.status": "In progress", "app3.desc": "New apps for health, everyday life and the outdoors will be listed here when they are ready.",
-    "om.h": "About us",
-    "om.p1": "Rafiki Digital is a small Norwegian company in Bekkjarvik on Austevoll. We make apps and digital tools that make everyday life a little easier, whether it is keeping track of your health, planning a trip in the mountains or finding your way in a new place.",
-    "om.p2": "Rafiki means friend in Swahili. That is what we want our apps to be: a friend in your pocket that you can trust.",
-    "slik.h": "How we work",
-    "d1t": "Sources, not guesswork", "d1": "What we write is based on official and professionally reliable sources, and we say so when something is uncertain.",
-    "d2t": "Easy to use", "d2": "The apps should be easy to understand, also for those who are not fond of technology, and they should work when there is no internet.",
-    "d3t": "What you do stays with you", "d3": "We collect no more data than the app needs. What you enter stays on your phone.",
+    "om.h": "About us", "om.snart": "Coming soon.",
     "kontakt.h": "Contact", "k.epost": "Email", "k.org": "Org. no.", "k.stad": "Location", "k.stadv": "5397 Bekkjarvik, Norway",
     "_tittel": "Rafiki Digital"
   },
   sw: {
-    "nav.appar": "Programu", "nav.om": "Kuhusu sisi", "nav.slik": "Jinsi tunavyofanya kazi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
-    "hero.tag": "Programu na zana za kidijitali, zilizotengenezwa magharibi mwa Norwe.",
-    "appar.h": "Programu", "appar.intro": "Programu zetu zitapatikana kwanza kwenye Google Play, na baadaye kwenye iPhone.",
-    "app.snart": "Inakuja hivi karibuni kwenye Google Play", "app.om": "Kuhusu programu", "app.pers": "Faragha",
+    "nav.om": "Kuhusu sisi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
+    "hero.tag": "Miradi, suluhisho za kidijitali na programu.",
+    "siste.h": "Habari mpya", "siste.dato": "10 Novemba 2026",
+    "siste.tittel": "Northern Norway Winter Guide imetumwa Google Play",
+    "siste.tekst": "Programu yetu ya kwanza ya safari imekamilika na sasa inakaguliwa na Google. Programu ni bure hadi tarehe 15 Desemba.",
+    "siste.lenke": "Soma zaidi kuhusu programu",
+    "pag.h": "Miradi inayoendelea", "pag.les": "Soma zaidi", "pag.arbeid": "Inatengenezwa",
+    "pag1.h": "Svalbard Guide", "pag1.desc": "Usalama, mwanga wa kaskazini, jua la usiku wa manane na maeneo ya Svalbard, mwaka mzima.",
+    "pag2.h": "Miongozo ya fjord na milima", "pag2.desc": "Trolltunga, Preikestolen na Kjerag, na Lysefjord.",
+    "pag3.h": "Maisha ya kila siku na fedha", "pag3.desc": "Nyumba na Pengesirkel.",
+    "appar.h": "Programu", "app.snart": "Inakuja hivi karibuni kwenye Google Play", "app2.status": "Inakaguliwa kwenye Google Play",
+    "app.om": "Kuhusu programu", "app.pers": "Faragha",
     "app1.desc": "Daftari la bure kwa watu wanaoishi na kisukari, na kwa familia zao. Limetengenezwa kwa ajili ya Afrika, kwa lugha 34. Kila unachoandika kinabaki kwenye simu yako.",
     "app2.desc": "Mwanga wa kaskazini, maeneo, hadithi na safari salama wakati wa baridi kutoka Mzingo wa Aktiki hadi Finnmark. Inafanya kazi bila mtandao, kwa lugha tisa. Hakuna akaunti wala ufuatiliaji.",
-    "app3.h": "Programu zaidi", "app3.status": "Zinatengenezwa", "app3.desc": "Programu mpya za afya, maisha ya kila siku na shughuli za nje zitaorodheshwa hapa zitakapokuwa tayari.",
-    "om.h": "Kuhusu sisi",
-    "om.p1": "Rafiki Digital ni kampuni ndogo ya Kinorwe iliyoko Bekkjarvik, Austevoll. Tunatengeneza programu na zana za kidijitali zinazorahisisha maisha ya kila siku, iwe ni kufuatilia afya yako, kupanga safari milimani au kutafuta njia mahali pageni.",
-    "om.p2": "Rafiki ni neno la Kiswahili. Hivyo ndivyo tunavyotaka programu zetu ziwe: rafiki mfukoni unayeweza kumwamini.",
-    "slik.h": "Jinsi tunavyofanya kazi",
-    "d1t": "Vyanzo badala ya kubahatisha", "d1": "Tunachoandika kinategemea vyanzo rasmi na vya kitaalamu vinavyoaminika, na tunasema wazi jambo linapokuwa halina uhakika.",
-    "d2t": "Rahisi kutumia", "d2": "Programu zinapaswa kueleweka kwa urahisi, hata kwa wasiopenda teknolojia, na zifanye kazi hata bila mtandao.",
-    "d3t": "Unachofanya kinabaki kwako", "d3": "Hatukusanyi data zaidi ya inayohitajika na programu. Unachoingiza kinabaki kwenye simu yako.",
+    "om.h": "Kuhusu sisi", "om.snart": "Inakuja hivi karibuni.",
     "kontakt.h": "Mawasiliano", "k.epost": "Barua pepe", "k.org": "Nambari ya usajili", "k.stad": "Mahali", "k.stadv": "5397 Bekkjarvik, Norwe",
     "_tittel": "Rafiki Digital"
   }
@@ -168,13 +187,10 @@ window.TEKST = {
 <header class="land">
   <nav class="meny" aria-label="Meny">
     <div class="inn">
-      <a class="merke" href="/">Rafiki Digital</a>
       <ul>
-        <li><a href="#appar" data-t="nav.appar">Appar</a></li>
         <li><a href="#om" data-t="nav.om">Om oss</a></li>
-        <li><a href="#slik" data-t="nav.slik">Slik arbeider vi</a></li>
-        <li><a href="veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
         <li><a href="#kontakt" data-t="nav.kontakt">Kontakt</a></li>
+        <li><a href="veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
       </ul>
     </div>
   </nav>
@@ -256,15 +272,54 @@ window.TEKST = {
 
   <div class="namn">
     <h1>Rafiki Digital</h1>
-    <p data-t="hero.tag">Appar og digitale verktøy, laga på Vestlandet.</p>
+    <p data-t="hero.tag">Prosjekt, digitale løysingar og appar.</p>
   </div>
 </header>
 
 <main>
   <div class="tekst">
+
+    <!-- SISTE HENDING: byt ut dato og tekst når noko nytt er lagt ut. -->
+    <section class="siste" aria-labelledby="siste">
+      <h2 id="siste" data-t="siste.h">Siste hending</h2>
+      <p class="dato"><time datetime="2026-11-10" data-t="siste.dato">10. november 2026</time></p>
+      <h3 data-t="siste.tittel">Nordnorsk Vinterguide er send til Google Play</h3>
+      <p data-t="siste.tekst">Den første reiseappen vår er ferdig og ligg no til godkjenning hos Google. Appen er gratis fram til 15. desember.</p>
+      <p><a href="nordnorge/" data-t="siste.lenke">Les meir om appen</a></p>
+    </section>
+
+    <!-- PÅGÅANDE: tre fliser med det vi arbeider med no. -->
+    <h2 id="prosjekt" data-t="pag.h">Pågåande prosjekt</h2>
+    <div class="fliser">
+      <article class="flis">
+        <img src="svalbard/icon.png" alt="" width="44" height="44">
+        <h3 data-t="pag1.h">Svalbard-guiden</h3>
+        <p data-t="pag1.desc">Tryggleik, nordlys, midnattssol og stader på Svalbard, heile året.</p>
+        <a href="svalbard/" data-t="pag.les">Les meir</a>
+      </article>
+      <article class="flis">
+        <h3 data-t="pag2.h">Fjord- og fjellguidar</h3>
+        <p data-t="pag2.desc">Trolltunga, Preikestolen og Kjerag, og Lysefjorden.</p>
+        <span class="merk" data-t="pag.arbeid">Under arbeid</span>
+      </article>
+      <article class="flis">
+        <h3 data-t="pag3.h">Kvardag og økonomi</h3>
+        <p data-t="pag3.desc">Nyumba og Pengesirkel.</p>
+        <span class="merk" data-t="pag.arbeid">Under arbeid</span>
+      </article>
+    </div>
+
+    <!-- APPAR: det vi har lagt ut. Personvernlenkjene må bli ståande. -->
     <h2 id="appar" data-t="appar.h">Appar</h2>
-    <p data-t="appar.intro">Appane våre kjem først på Google Play, og seinare på iPhone.</p>
     <div class="appar">
+      <article class="app">
+        <div class="topp">
+          <img src="nordnorge/icon.png" alt="" width="52" height="52">
+          <div><h3>Nordnorsk Vinterguide</h3><span class="merk" data-t="app2.status">Til godkjenning på Google Play</span></div>
+        </div>
+        <p data-t="app2.desc">Nordlys, stader, historier og trygg vinter frå Polarsirkelen til Finnmark. Verkar utan nett, på ni språk. Ingen konto og inga sporing.</p>
+        <div class="lenkjer"><a href="nordnorge/" data-t="app.om">Om appen</a><a href="nordnorge/personvern.html" data-t="app.pers">Personvern</a></div>
+      </article>
       <article class="app">
         <div class="topp">
           <img src="diabetes/icon.png" alt="" width="52" height="52">
@@ -273,34 +328,11 @@ window.TEKST = {
         <p data-t="app1.desc">Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
         <div class="lenkjer"><a href="diabetes/" data-t="app.om">Om appen</a><a href="diabetes/privacy.html" data-t="app.pers">Personvern</a></div>
       </article>
-      <article class="app">
-        <div class="topp">
-          <img src="nordnorge/icon.png" alt="" width="52" height="52">
-          <div><h3>Nordnorsk Vinterguide</h3><span class="merk" data-t="app.snart">Kjem snart på Google Play</span></div>
-        </div>
-        <p data-t="app2.desc">Nordlys, stader, historier og trygg vinter frå Polarsirkelen til Finnmark. Virkar utan nett, på ni språk. Ingen konto og inga sporing.</p>
-        <div class="lenkjer"><a href="nordnorge/" data-t="app.om">Om appen</a><a href="nordnorge/personvern.html" data-t="app.pers">Personvern</a></div>
-      </article>
-      <article class="app kjem">
-        <div class="topp"><div><h3 data-t="app3.h">Fleire appar</h3><span class="merk" data-t="app3.status">Under arbeid</span></div></div>
-        <p data-t="app3.desc">Nye appar for helse, kvardag og friluftsliv blir lista her når dei er klare.</p>
-      </article>
     </div>
 
+    <!-- OM OSS: teksten kjem seinare. -->
     <h2 id="om" data-t="om.h">Om oss</h2>
-    <p data-t="om.p1">Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar og digitale verktøy som gjer kvardagen litt enklare, anten det gjeld å halde orden på helsa, planleggje ein tur i fjellet eller finne fram på ein ny stad.</p>
-    <p data-t="om.p2">Rafiki tyder venn på swahili. Det er det vi vil at appane våre skal vere: ein venn i lomma som er til å stole på.</p>
-
-    <h2 id="slik" data-t="slik.h">Slik arbeider vi</h2>
-    <dl class="prinsipp">
-      <dt data-t="d1t">Kjelder framfor gjetting</dt>
-      <dd data-t="d1">Det vi skriv, byggjer på offisielle og fagleg sikre kjelder, og vi seier ifrå når noko er usikkert.</dd>
-      <dt data-t="d2t">Enkelt å bruke</dt>
-      <dd data-t="d2">Appane skal vere lette å forstå, også for den som ikkje er glad i teknologi, og dei skal fungere når nettet er borte.</dd>
-      <dt data-t="d3t">Det du gjer, blir hjå deg</dt>
-      <dd data-t="d3">Vi samlar ikkje inn meir data enn appen treng. Det du legg inn, blir på telefonen din.</dd>
-    </dl>
-
+    <p class="dempa" data-t="om.snart">Kjem snart.</p>
 
     <h2 id="kontakt" data-t="kontakt.h">Kontakt</h2>
     <dl class="kontakt">
@@ -311,11 +343,6 @@ window.TEKST = {
       <dt data-t="k.stad">Stad</dt>
       <dd data-t="k.stadv">5397 Bekkjarvik, Noreg</dd>
     </dl>
-
-    <div class="english" id="english" lang="en" data-berre-sprak="nn sw">
-      <h2>In English</h2>
-      <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast of Norway. We make apps and digital tools for everyday life and the outdoors, built to be simple, reliable and respectful of your data. Our apps are <a href="diabetes/">Rafiki – Diabetes Logbook</a>, a free logbook for people living with diabetes, made for Africa, and <a href="nordnorge/">Northern Norway Winter Guide</a>, a guide to the northern lights and winter travel in the Arctic. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
-    </div>
   </div>
 </main>
 
