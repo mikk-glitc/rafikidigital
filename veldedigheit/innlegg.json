@@ -1,20 +1,13 @@
 {
   "kategoriar": {
-    "nyheiter": {
-      "nn": "Nyheiter",
-      "en": "News",
-      "sw": "Habari"
-    },
-    "prosjekt": {
-      "nn": "Prosjekt",
-      "en": "Projects",
-      "sw": "Miradi"
-    },
-    "reiser": {
-      "nn": "Reiser",
-      "en": "Travels",
-      "sw": "Safari"
-    }
+    "prosjekt":   { "nn": "Prosjekt",   "en": "Projects",   "sw": "Miradi" },
+    "reise":      { "nn": "Reise",      "en": "Travel",     "sw": "Safari" },
+    "teknologi":  { "nn": "Teknologi",  "en": "Technology", "sw": "Teknolojia" },
+    "barnehjem":  { "nn": "Barnehjem",  "en": "Children's homes", "sw": "Makazi ya watoto" }
+  },
+  "land": {
+    "kenya":    { "nn": "Kenya",    "en": "Kenya",    "sw": "Kenya" },
+    "tanzania": { "nn": "Tanzania", "en": "Tanzania", "sw": "Tanzania" }
   },
   "innlegg": []
 }

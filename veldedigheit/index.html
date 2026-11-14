@@ -634,8 +634,12 @@
         </div>
       </div>
       <div class="gruppe">
-        <h3 data-t="kat.h">Kategori</h3>
+        <h3 data-t="kat.h">Tema</h3>
         <div class="val" id="kategoriar" role="group"></div>
+      </div>
+      <div class="gruppe">
+        <h3 data-t="land.h">Land</h3>
+        <div class="val" id="landval" role="group"></div>
       </div>
     </aside>
     <div class="innlegg" id="innlegg" aria-live="polite">
@@ -655,7 +659,7 @@ window.TEKST = {
     "nav.heim": "Home", "nav.prosjekt": "Projects", "nav.verktoy": "Digital tools", "nav.appar": "Apps", "nav.om": "About us", "nav.slik": "How we work", "nav.veld": "Charity", "nav.kontakt": "Contact us",
     "hero.tittel": "A Hand from Above", "blogg.h": "Posts",
     "sort.h": "Sort", "sort.ny": "Newest first", "sort.gml": "Oldest first",
-    "kat.h": "Category", "kat.alle": "All",
+    "kat.h": "Topic", "land.h": "Country", "kat.alle": "All",
     "les": "Read more", "tomt": "No posts yet. The story of how the work began is coming soon.",
     "ikkje": "This post is not yet available in English, so it is shown in Norwegian.",
     "_tittel": "A Hand from Above – Rafiki Digital"
@@ -664,7 +668,7 @@ window.TEKST = {
     "nav.heim": "Nyumbani", "nav.prosjekt": "Miradi", "nav.verktoy": "Zana za kidijitali", "nav.appar": "Programu", "nav.om": "Kuhusu sisi", "nav.slik": "Jinsi tunavyofanya kazi", "nav.veld": "Hisani", "nav.kontakt": "Wasiliana nasi",
     "hero.tittel": "Mkono Kutoka Juu", "blogg.h": "Machapisho",
     "sort.h": "Panga", "sort.ny": "Mapya kwanza", "sort.gml": "Ya zamani kwanza",
-    "kat.h": "Kategoria", "kat.alle": "Zote",
+    "kat.h": "Mada", "land.h": "Nchi", "kat.alle": "Zote",
     "les": "Soma zaidi", "tomt": "Bado hakuna machapisho. Hadithi ya jinsi kazi ilivyoanza inakuja hivi karibuni.",
     "ikkje": "Chapisho hili bado halipatikani kwa Kiswahili, kwa hivyo linaonyeshwa kwa Kinorwe.",
     "_tittel": "Mkono Kutoka Juu – Rafiki Digital"
@@ -676,10 +680,10 @@ window.TEKST = {
 <script>
 /* Bloggen: innlegga ligg i innlegg.json. Nytt innlegg = nytt objekt i lista "innlegg". */
 (function () {
-  var data = null, sort = 'ny', kat = 'alle';
+  var data = null, sort = 'ny', kat = 'alle', land = 'alle';
   var LOCALE = { nn: 'nn-NO', en: 'en-GB', sw: 'sw' };
   var boks = document.getElementById('innlegg');
-  var katBoks = document.getElementById('kategoriar');
+  var katBoks = document.getElementById('kategoriar'), landBoks = document.getElementById('landval');
 
   function tx(k) { var l = Sprak.no(); var d = window.TEKST; return (d[l] && d[l][k]) || d.nn[k] || k; }
   function paa(obj) { var l = Sprak.no(); return obj && obj[l] ? { v: obj[l], ok: true } : { v: obj ? obj.nn : '', ok: l === 'nn' }; }
@@ -692,23 +696,26 @@ window.TEKST = {
     catch (e) { return s; }
   }
 
-  function teiknKategoriar() {
-    katBoks.textContent = '';
+  /* Faner: trykk for å velje, trykk igjen for å sjå alle */
+  function teiknVal(boksen, kjelde, felt, valt, set) {
+    boksen.textContent = '';
     var tal = {};
-    data.innlegg.forEach(function (p) { tal[p.kategori] = (tal[p.kategori] || 0) + 1; });
-    var liste = [['alle', tx('kat.alle'), data.innlegg.length]];
-    Object.keys(data.kategoriar).forEach(function (k) { liste.push([k, paa(data.kategoriar[k]).v, tal[k] || 0]); });
-    liste.forEach(function (r) {
-      var b = el('button', { type: 'button', 'aria-pressed': String(kat === r[0]) });
-      b.appendChild(el('span', {}, r[1])); b.appendChild(el('span', { class: 'tal' }, String(r[2])));
-      b.addEventListener('click', function () { kat = r[0]; teikn(); });
-      katBoks.appendChild(b);
+    data.innlegg.forEach(function (p) { tal[p[felt]] = (tal[p[felt]] || 0) + 1; });
+    Object.keys(kjelde || {}).forEach(function (k) {
+      var b = el('button', { type: 'button', 'aria-pressed': String(valt === k) });
+      b.appendChild(el('span', {}, paa(kjelde[k]).v)); b.appendChild(el('span', { class: 'tal' }, String(tal[k] || 0)));
+      b.addEventListener('click', function () { set(valt === k ? 'alle' : k); teikn(); });
+      boksen.appendChild(b);
     });
+  }
+  function teiknKategoriar() {
+    teiknVal(katBoks, data.kategoriar, 'kategori', kat, function (k) { kat = k; });
+    teiknVal(landBoks, data.land, 'land', land, function (k) { land = k; });
   }
 
   function teiknInnlegg() {
     boks.textContent = '';
-    var liste = data.innlegg.filter(function (p) { return kat === 'alle' || p.kategori === kat; });
+    var liste = data.innlegg.filter(function (p) { return (kat === 'alle' || p.kategori === kat) && (land === 'alle' || p.land === land); });
     liste.sort(function (a, b) { return sort === 'ny' ? b.dato.localeCompare(a.dato) : a.dato.localeCompare(b.dato); });
     if (!liste.length) { boks.appendChild(el('p', { class: 'tomt' }, tx('tomt'))); return; }
     liste.forEach(function (p) {
@@ -716,6 +723,7 @@ window.TEKST = {
       var meta = el('div', { class: 'meta' });
       meta.appendChild(el('time', { datetime: p.dato }, dato(p.dato)));
       if (data.kategoriar[p.kategori]) meta.appendChild(el('span', { class: 'kat' }, paa(data.kategoriar[p.kategori]).v));
+      if (data.land && data.land[p.land]) meta.appendChild(el('span', { class: 'kat' }, paa(data.land[p.land]).v));
       art.appendChild(meta);
       var t = paa(p.tittel), i = paa(p.ingress), x = paa(p.tekst);
       if (!t.ok || !x.ok) { art.appendChild(el('p', { class: 'merknad' }, tx('ikkje'))); }
