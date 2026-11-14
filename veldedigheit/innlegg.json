@@ -88,6 +88,73 @@
           "Ninaamini kabisa kwamba kila mtu anaweza kupata maana ya maisha kwa kuwasaidia wengine. Unahitaji tu kusimama imara kwanza, na kuwa na cha kutosha cha kutoa. :)"
         ]
       }
+    },
+    {
+      "id": "rafiki-diabetesappen",
+      "dato": "2026-11-14",
+      "kategori": "teknologi",
+      "tittel": {
+        "nn": "Rafiki – ein diabetesapp for Afrika",
+        "en": "Rafiki – a diabetes app for Africa",
+        "sw": "Rafiki – programu ya kisukari kwa Afrika"
+      },
+      "ingress": {
+        "nn": "Diabetesappen vår, Rafiki – Diabetes Logbook, er no ute på Google Play i 47 afrikanske land. Appen er gratis, verkar utan nett og finst på 34 språk.",
+        "en": "Our diabetes app, Rafiki – Diabetes Logbook, is now on Google Play in 47 African countries. The app is free, works offline and is available in 34 languages.",
+        "sw": "Programu yetu ya kisukari, Rafiki – Diabetes Logbook, sasa inapatikana kwenye Google Play katika nchi 47 za Afrika. Programu ni bure, inafanya kazi bila mtandao na inapatikana kwa lugha 34."
+      },
+      "bilete": [
+        {
+          "src": "diabetes-heim.webp",
+          "alt": {
+            "nn": "Forsida i appen med siste blodsukker",
+            "en": "The app's home screen with the latest blood sugar",
+            "sw": "Skrini kuu ya programu yenye sukari ya mwisho ya damu"
+          }
+        },
+        {
+          "src": "diabetes-laer.webp",
+          "alt": {
+            "nn": "Lær-sida i appen: kvifor appen finst",
+            "en": "The Learn page in the app: why this app exists",
+            "sw": "Ukurasa wa Jifunze katika programu: kwa nini programu hii ipo"
+          }
+        }
+      ],
+      "lenkje": {
+        "url": "https://play.google.com/store/apps/details?id=no.rafikidigital.diabetes",
+        "tekst": {
+          "nn": "Last ned på Google Play",
+          "en": "Download on Google Play",
+          "sw": "Pakua kwenye Google Play"
+        }
+      },
+      "tekst": {
+        "nn": [
+          "Appen starta med ei venninne av meg. Ho fekk høyre at ho hadde diabetes type 1, truleg fordi ho var ung då sjukdommen kom. Først mange år seinare fekk ho testane som viser kva slags diabetes ein verkeleg har, og dei viste at bukspyttkjertelen hennar framleis laga insulin.",
+          "Rett diagnose endrar alt: kva medisin du treng, kva du kan ete, og korleis du planlegg livet. Difor hjelper appen deg å be legen om ein C-peptid-test, og deretter om antistofftestar, dersom historia di ikkje passar med diagnosen du har fått.",
+          "Vi ønskjer å hjelpe menneske som lever med diabetes i Afrika, og familiane som står rundt dei. Mange har lite pengar, dårleg nettilgang og lang veg til legen. Difor verkar appen utan nett, snakkar språka folk faktisk brukar, og har ei eiga ordning for dei som berre har råd til éin teststrimmel om dagen.",
+          "I appen kan du føre blodsukker, insulin og tablettar, måltid, aktivitet, vekt, HbA1c, blodtrykk og ketonar. Du får råd etter kvar måling, kan lage ein rapport til legen og finne lokal mat som ugali, chapati og matoke. Det finst ingen konto, og alt du loggar, blir verande på telefonen.",
+          "Diabetesappen er også grunnen til at Rafiki Digital vart skipa. For å kunne gje han ut trong vi eit organisasjonsnummer.",
+          "Appen gjev generell helseinformasjon og er ikkje medisinsk utstyr. Han erstattar ikkje legen. Snakk alltid med helsearbeidaren din før du endrar medisin eller insulin."
+        ],
+        "en": [
+          "The app started with a friend of mine. She was told she had type 1 diabetes, probably because she was young when it started. Only many years later did she get the tests that show what kind of diabetes a person really has, and they showed that her own pancreas was still making insulin.",
+          "The right diagnosis changes everything: which medicine you need, what you can eat, and how you plan your life. That is why the app helps you ask your doctor for a C-peptide test, and then for antibody tests, if your story does not fit the diagnosis you were given.",
+          "We want to help people living with diabetes in Africa, and the families around them. Many have little money, poor internet access and a long way to the doctor. That is why the app works offline, speaks the languages people actually use, and has a special plan for those who can only afford one test strip a day.",
+          "In the app you can log blood sugar, insulin and tablets, meals, activity, weight, HbA1c, blood pressure and ketones. You get advice after each reading, can make a report for your doctor, and find local food such as ugali, chapati and matoke. There is no account, and everything you log stays on your phone.",
+          "The diabetes app is also the reason Rafiki Digital was founded. To publish it, we needed an organisation number.",
+          "The app gives general health information and is not a medical device. It does not replace your doctor. Always talk to your health worker before you change medicine or insulin."
+        ],
+        "sw": [
+          "Programu ilianza na rafiki yangu. Aliambiwa ana kisukari aina ya 1, pengine kwa sababu alikuwa kijana ugonjwa ulipoanza. Miaka mingi baadaye ndipo alipata vipimo vinavyoonyesha mtu ana kisukari cha aina gani hasa, na vilionyesha kwamba kongosho lake bado lilikuwa likitengeneza insulini.",
+          "Utambuzi sahihi hubadilisha kila kitu: dawa unayohitaji, unachoweza kula, na jinsi unavyopanga maisha yako. Ndiyo maana programu inakusaidia kumwomba daktari kipimo cha C-peptide, na kisha vipimo vya kingamwili, ikiwa historia yako haiendani na utambuzi uliopewa.",
+          "Tunataka kuwasaidia watu wanaoishi na kisukari barani Afrika, na familia zinazowazunguka. Wengi wana pesa kidogo, mtandao duni na safari ndefu hadi kwa daktari. Ndiyo maana programu inafanya kazi bila mtandao, inazungumza lugha ambazo watu wanatumia kweli, na ina mpango maalum kwa wale wanaoweza kumudu kipande kimoja tu cha kupimia kwa siku.",
+          "Katika programu unaweza kuandika sukari ya damu, insulini na vidonge, milo, mazoezi, uzito, HbA1c, shinikizo la damu na ketoni. Unapata ushauri baada ya kila kipimo, unaweza kutengeneza ripoti kwa daktari, na kupata vyakula vya kienyeji kama ugali, chapati na matoke. Hakuna akaunti, na kila unachoandika kinabaki kwenye simu yako.",
+          "Programu ya kisukari pia ndiyo sababu Rafiki Digital ilianzishwa. Ili kuitoa, tulihitaji nambari ya usajili wa biashara.",
+          "Programu inatoa taarifa za jumla za afya na si kifaa cha matibabu. Haichukui nafasi ya daktari wako. Zungumza na mhudumu wako wa afya kila wakati kabla ya kubadilisha dawa au insulini."
+        ]
+      }
     }
   ]
 }

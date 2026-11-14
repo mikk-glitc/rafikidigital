@@ -78,6 +78,10 @@
   .post details summary::-webkit-details-marker { display: none; }
   .post details[open] summary { margin-bottom: .4rem; }
   .tomt { color: #A9BDB2; font-style: italic; }
+  .post .bilete { display: flex; gap: .6rem; margin: .4rem 0 .9rem; }
+  .post .bilete img { flex: 1 1 0; min-width: 0; max-width: 11rem; height: auto; border-radius: 12px; border: 1px solid rgba(228,234,230,.2); }
+  .post .nedlast { display: inline-block; margin: 0 0 .7rem; padding: .5rem 1.1rem; border-radius: 999px; background: #F2F4F1; color: #26382F; text-decoration: none; font-weight: 600; }
+  .post .nedlast:hover { background: var(--sol); }
   .innlegg[hidden], .om-hand[hidden] { display: none !important; }
   .om-hand { flex: 999 1 26rem; min-width: 0; max-width: 40rem; }
   .om-hand h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 0 0 1rem; color: #F2F4F1; }
@@ -747,12 +751,14 @@ window.TEKST = {
 
   function teiknInnlegg() {
     boks.textContent = '';
+    data.innlegg.forEach(function (p, n) { p._n = n; });
+    function nyast(a, b) { return b.dato.localeCompare(a.dato) || b._n - a._n; }
     var liste = data.innlegg.filter(function (p) { return (kat === 'alle' || p.kategori === kat) && (land === 'alle' || p.land === land); });
     if (kat === 'alle' && land === 'alle') {
       /* utan vald fane: berre dei 10 siste innlegga; eldre finn ein under fanene */
-      liste = liste.slice().sort(function (a, b) { return b.dato.localeCompare(a.dato); }).slice(0, 10);
+      liste = liste.slice().sort(nyast).slice(0, 10);
     }
-    liste.sort(function (a, b) { return sort === 'ny' ? b.dato.localeCompare(a.dato) : a.dato.localeCompare(b.dato); });
+    liste.sort(function (a, b) { return sort === 'ny' ? nyast(a, b) : nyast(b, a); });
     if (!liste.length) { boks.appendChild(el('p', { class: 'tomt' }, tx('tomt'))); return; }
     liste.forEach(function (p) {
       var art = el('article', { class: 'post', id: p.id });
@@ -765,6 +771,13 @@ window.TEKST = {
       if (!t.ok || !x.ok) { art.appendChild(el('p', { class: 'merknad' }, tx('ikkje'))); }
       art.appendChild(el('h3', {}, t.v));
       if (i.v) art.appendChild(el('p', {}, i.v));
+      /* skjermbilete og nedlastingslenkje, om innlegget har det */
+      if (p.bilete && p.bilete.length) {
+        var bl = el('div', { class: 'bilete' });
+        p.bilete.forEach(function (b) { bl.appendChild(el('img', { src: b.src, alt: paa(b.alt).v, loading: 'lazy' })); });
+        art.appendChild(bl);
+      }
+      if (p.lenkje) art.appendChild(el('a', { class: 'nedlast', href: p.lenkje.url, target: '_blank', rel: 'noopener' }, paa(p.lenkje.tekst).v));
       if (x.v && x.v.length) {
         var d = el('details'), s = el('summary', {}, tx('les')); d.appendChild(s);
         /* les heile teksten: fanene forsvinn (på mobil), og knappen blir «Lukk» */
