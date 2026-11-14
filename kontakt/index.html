@@ -21,7 +21,7 @@
   .flis .merk { font-size: .85rem; }
   .tekst { max-width: 46rem; }
   .omrade { display: flex; flex-wrap: nowrap; gap: clamp(.25rem, 1.2vw, .5rem); margin: 1.1rem 0 0; }
-  .omrade a { white-space: nowrap; text-decoration: none; font-weight: 400; font-size: clamp(.78rem, 3.3vw, 1rem); padding: .35rem clamp(.55rem, 2.2vw, 1rem) !important; color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .35rem 1rem; text-shadow: none; }
+  .omrade a { white-space: nowrap; text-decoration: none; font-weight: 400; font-size: min(1rem, 3.3vw); padding: .35rem clamp(.55rem, 2.2vw, 1rem) !important; color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .35rem 1rem; text-shadow: none; }
   .omrade a:hover { background: var(--fjord); }
   .band .omrade svg { position: static; width: 1.05em; height: 1.05em; display: block; }
   .omrade a.heim { display: inline-flex; align-items: center; justify-content: center; padding-left: clamp(.55rem, 2.2vw, .85rem) !important; padding-right: clamp(.55rem, 2.2vw, .85rem) !important; }
@@ -110,13 +110,7 @@ window.TEKST = { en: {
       <div>
         <h1 data-t="s.h">Kontakt oss</h1>
         <p data-t="s.under">Rafiki Digital, Bekkjarvik.</p>
-        <nav class="omrade" aria-label="Arbeidet vårt">
-          <a class="heim" href="../" aria-label="Heim" title="Heim"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg></a>
-          <a href="../prosjekt/" data-t="nav.prosjekt">Prosjekt</a>
-          <a href="../appar/" data-t="nav.appar">Appar</a>
-          <a href="../verktoy/" data-t="nav.verktoy">Digitale verktøy</a>
-          <a href="../3d-print/" data-t="nav.3d">3D-print</a>
-        </nav>
+
       </div>
     </div>
   </div>
