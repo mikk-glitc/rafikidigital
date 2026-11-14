@@ -1,0 +1,38 @@
+{
+  "kategoriar": {
+    "nyheiter": { "nn": "Nyheiter", "en": "News", "sw": "Habari" },
+    "prosjekt": { "nn": "Prosjekt", "en": "Projects", "sw": "Miradi" },
+    "reiser":   { "nn": "Reiser",   "en": "Travels", "sw": "Safari" }
+  },
+  "innlegg": [
+    {
+      "id": "velkomen",
+      "dato": "2026-11-14",
+      "kategori": "nyheiter",
+      "tittel": {
+        "nn": "Velkomen til Ei hand frå oven",
+        "en": "Welcome to A Hand from Above",
+        "sw": "Karibu Mkono Kutoka Juu"
+      },
+      "ingress": {
+        "nn": "Her skal vi fortelje om arbeidet i Ei hand frå oven, der Noreg og Afrika møtest.",
+        "en": "Here we will tell you about the work of A Hand from Above, where Norway and Africa meet.",
+        "sw": "Hapa tutasimulia kuhusu kazi ya Mkono Kutoka Juu, ambapo Norwe na Afrika zinakutana."
+      },
+      "tekst": {
+        "nn": [
+          "I denne bloggen kjem vi til å skrive om kva vi gjer, kven vi møter og korleis arbeidet går.",
+          "Innlegga kan du sortere etter dato og kategori i menyen til venstre, og du kan lese alt på norsk, engelsk og swahili."
+        ],
+        "en": [
+          "In this blog we will write about what we do, who we meet and how the work is going.",
+          "You can sort the posts by date and category in the menu on the left, and read everything in Norwegian, English and Swahili."
+        ],
+        "sw": [
+          "Katika blogu hii tutaandika kuhusu tunachofanya, tunaokutana nao na jinsi kazi inavyoendelea.",
+          "Unaweza kupanga machapisho kwa tarehe na kategoria kwenye menyu iliyo upande wa kushoto, na kusoma kila kitu kwa Kinorwe, Kiingereza na Kiswahili."
+        ]
+      }
+    }
+  ]
+}

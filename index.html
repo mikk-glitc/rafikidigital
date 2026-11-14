@@ -89,6 +89,13 @@
   .meny ul a { text-decoration: none; font-size: 1rem; font-weight: 400; color: var(--fjord); text-shadow: 0 0 8px var(--himmel); }
   .meny ul a:hover { text-decoration: underline; text-decoration-color: var(--sol); }
 
+
+  /* Språkknappen øvst: NO / EN / SW. Valet følgjer med til dei andre sidene. */
+  .meny ul .sprak { display: inline-flex; border: 1px solid rgba(44,62,70,.35); border-radius: 999px; overflow: hidden; align-self: center; }
+  .sprak button { font: inherit; font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--fjord); background: transparent; border: 0; padding: .2rem .6rem; min-height: 32px; cursor: pointer; }
+  .sprak button[aria-pressed="true"] { background: var(--fjord); color: var(--himmel); }
+  .sprak button:focus-visible { outline: 2px solid var(--sol); outline-offset: -2px; }
+
   /* Appar: eitt kort per app. Fleire appar = fleire kort i same rutenett. */
   .appar { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin: 1.4rem 0 0; }
   .app { display: flex; flex-direction: column; background: rgba(228,234,230,.06); border: 1px solid rgba(228,234,230,.18); border-radius: 14px; padding: 1.2rem 1.25rem 1.1rem; }
@@ -119,6 +126,47 @@
     .kontakt dt { margin-top: .7rem; }
   }
 </style>
+<script>
+window.TEKST = {
+  en: {
+    "nav.appar": "Apps", "nav.om": "About us", "nav.slik": "How we work", "nav.veld": "Charity", "nav.kontakt": "Contact",
+    "hero.tag": "Apps and digital tools, made on the west coast of Norway.",
+    "appar.h": "Apps", "appar.intro": "Our apps come to Google Play first, and later to iPhone.",
+    "app.snart": "Coming soon on Google Play", "app.om": "About the app", "app.pers": "Privacy",
+    "app1.desc": "A free logbook for people living with diabetes, and for their families. Made for Africa, in 34 languages. Everything you log stays on your phone.",
+    "app2.desc": "Northern lights, places, stories and safe winter travel from the Arctic Circle to Finnmark. Works offline, in nine languages. No account and no tracking.",
+    "app3.h": "More apps", "app3.status": "In progress", "app3.desc": "New apps for health, everyday life and the outdoors will be listed here when they are ready.",
+    "om.h": "About us",
+    "om.p1": "Rafiki Digital is a small Norwegian company in Bekkjarvik on Austevoll. We make apps and digital tools that make everyday life a little easier, whether it is keeping track of your health, planning a trip in the mountains or finding your way in a new place.",
+    "om.p2": "Rafiki means friend in Swahili. That is what we want our apps to be: a friend in your pocket that you can trust.",
+    "slik.h": "How we work",
+    "d1t": "Sources, not guesswork", "d1": "What we write is based on official and professionally reliable sources, and we say so when something is uncertain.",
+    "d2t": "Easy to use", "d2": "The apps should be easy to understand, also for those who are not fond of technology, and they should work when there is no internet.",
+    "d3t": "What you do stays with you", "d3": "We collect no more data than the app needs. What you enter stays on your phone.",
+    "kontakt.h": "Contact", "k.epost": "Email", "k.org": "Org. no.", "k.stad": "Location", "k.stadv": "5397 Bekkjarvik, Norway",
+    "_tittel": "Rafiki Digital"
+  },
+  sw: {
+    "nav.appar": "Programu", "nav.om": "Kuhusu sisi", "nav.slik": "Jinsi tunavyofanya kazi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
+    "hero.tag": "Programu na zana za kidijitali, zilizotengenezwa magharibi mwa Norwe.",
+    "appar.h": "Programu", "appar.intro": "Programu zetu zitapatikana kwanza kwenye Google Play, na baadaye kwenye iPhone.",
+    "app.snart": "Inakuja hivi karibuni kwenye Google Play", "app.om": "Kuhusu programu", "app.pers": "Faragha",
+    "app1.desc": "Daftari la bure kwa watu wanaoishi na kisukari, na kwa familia zao. Limetengenezwa kwa ajili ya Afrika, kwa lugha 34. Kila unachoandika kinabaki kwenye simu yako.",
+    "app2.desc": "Mwanga wa kaskazini, maeneo, hadithi na safari salama wakati wa baridi kutoka Mzingo wa Aktiki hadi Finnmark. Inafanya kazi bila mtandao, kwa lugha tisa. Hakuna akaunti wala ufuatiliaji.",
+    "app3.h": "Programu zaidi", "app3.status": "Zinatengenezwa", "app3.desc": "Programu mpya za afya, maisha ya kila siku na shughuli za nje zitaorodheshwa hapa zitakapokuwa tayari.",
+    "om.h": "Kuhusu sisi",
+    "om.p1": "Rafiki Digital ni kampuni ndogo ya Kinorwe iliyoko Bekkjarvik, Austevoll. Tunatengeneza programu na zana za kidijitali zinazorahisisha maisha ya kila siku, iwe ni kufuatilia afya yako, kupanga safari milimani au kutafuta njia mahali pageni.",
+    "om.p2": "Rafiki ni neno la Kiswahili. Hivyo ndivyo tunavyotaka programu zetu ziwe: rafiki mfukoni unayeweza kumwamini.",
+    "slik.h": "Jinsi tunavyofanya kazi",
+    "d1t": "Vyanzo badala ya kubahatisha", "d1": "Tunachoandika kinategemea vyanzo rasmi na vya kitaalamu vinavyoaminika, na tunasema wazi jambo linapokuwa halina uhakika.",
+    "d2t": "Rahisi kutumia", "d2": "Programu zinapaswa kueleweka kwa urahisi, hata kwa wasiopenda teknolojia, na zifanye kazi hata bila mtandao.",
+    "d3t": "Unachofanya kinabaki kwako", "d3": "Hatukusanyi data zaidi ya inayohitajika na programu. Unachoingiza kinabaki kwenye simu yako.",
+    "kontakt.h": "Mawasiliano", "k.epost": "Barua pepe", "k.org": "Nambari ya usajili", "k.stad": "Mahali", "k.stadv": "5397 Bekkjarvik, Norwe",
+    "_tittel": "Rafiki Digital"
+  }
+};
+</script>
+<script src="assets/sprak.js" defer></script>
 </head>
 <body>
 
@@ -127,12 +175,12 @@
     <div class="inn">
       <a class="merke" href="/">Rafiki Digital</a>
       <ul>
-        <li><a href="#appar">Appar</a></li>
-        <li><a href="#om">Om oss</a></li>
-        <li><a href="#slik">Slik arbeider vi</a></li>
-        <li><a href="veldedigheit/">Veldedigheit</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#english" lang="en">English</a></li>
+        <li><a href="#appar" data-t="nav.appar">Appar</a></li>
+        <li><a href="#om" data-t="nav.om">Om oss</a></li>
+        <li><a href="#slik" data-t="nav.slik">Slik arbeider vi</a></li>
+        <li><a href="veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
+        <li><a href="#kontakt" data-t="nav.kontakt">Kontakt</a></li>
+        <li class="sprak" role="group" aria-label="Språk / Language / Lugha"><button type="button" data-lang="nn" lang="nn" title="Norsk" aria-pressed="true">NO</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button><button type="button" data-lang="sw" lang="sw" title="Kiswahili" aria-pressed="false">SW</button></li>
       </ul>
     </div>
   </nav>
@@ -214,63 +262,63 @@
 
   <div class="namn">
     <h1>Rafiki Digital</h1>
-    <p>Appar og digitale verktøy, laga på Vestlandet.</p>
+    <p data-t="hero.tag">Appar og digitale verktøy, laga på Vestlandet.</p>
   </div>
 </header>
 
 <main>
   <div class="tekst">
-    <h2 id="appar">Appar</h2>
-    <p>Appane våre kjem først på Google Play, og seinare på iPhone.</p>
+    <h2 id="appar" data-t="appar.h">Appar</h2>
+    <p data-t="appar.intro">Appane våre kjem først på Google Play, og seinare på iPhone.</p>
     <div class="appar">
       <article class="app">
         <div class="topp">
           <img src="diabetes/icon.png" alt="" width="52" height="52">
-          <div><h3>Rafiki – Diabetes Logbook</h3><span class="merk">Kjem snart på Google Play</span></div>
+          <div><h3>Rafiki – Diabetes Logbook</h3><span class="merk" data-t="app.snart">Kjem snart på Google Play</span></div>
         </div>
-        <p>Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
-        <div class="lenkjer"><a href="diabetes/">Om appen</a><a href="diabetes/privacy.html">Personvern</a></div>
+        <p data-t="app1.desc">Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
+        <div class="lenkjer"><a href="diabetes/" data-t="app.om">Om appen</a><a href="diabetes/privacy.html" data-t="app.pers">Personvern</a></div>
       </article>
       <article class="app">
         <div class="topp">
           <img src="nordnorge/icon.png" alt="" width="52" height="52">
-          <div><h3>Nordnorsk Vinterguide</h3><span class="merk">Kjem snart på Google Play</span></div>
+          <div><h3>Nordnorsk Vinterguide</h3><span class="merk" data-t="app.snart">Kjem snart på Google Play</span></div>
         </div>
-        <p>Nordlys, stader, historier og trygg vinter frå Polarsirkelen til Finnmark. Virkar utan nett, på ni språk. Ingen konto og inga sporing.</p>
-        <div class="lenkjer"><a href="nordnorge/">Om appen</a><a href="nordnorge/personvern.html">Personvern</a></div>
+        <p data-t="app2.desc">Nordlys, stader, historier og trygg vinter frå Polarsirkelen til Finnmark. Virkar utan nett, på ni språk. Ingen konto og inga sporing.</p>
+        <div class="lenkjer"><a href="nordnorge/" data-t="app.om">Om appen</a><a href="nordnorge/personvern.html" data-t="app.pers">Personvern</a></div>
       </article>
       <article class="app kjem">
-        <div class="topp"><div><h3>Fleire appar</h3><span class="merk">Under arbeid</span></div></div>
-        <p>Nye appar for helse, kvardag og friluftsliv blir lista her når dei er klare.</p>
+        <div class="topp"><div><h3 data-t="app3.h">Fleire appar</h3><span class="merk" data-t="app3.status">Under arbeid</span></div></div>
+        <p data-t="app3.desc">Nye appar for helse, kvardag og friluftsliv blir lista her når dei er klare.</p>
       </article>
     </div>
 
-    <h2 id="om">Om oss</h2>
-    <p>Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar og digitale verktøy som gjer kvardagen litt enklare, anten det gjeld å halde orden på helsa, planleggje ein tur i fjellet eller finne fram på ein ny stad.</p>
-    <p>Rafiki tyder venn på swahili. Det er det vi vil at appane våre skal vere: ein venn i lomma som er til å stole på.</p>
+    <h2 id="om" data-t="om.h">Om oss</h2>
+    <p data-t="om.p1">Rafiki Digital er eit lite norsk selskap i Bekkjarvik på Austevoll. Vi lagar appar og digitale verktøy som gjer kvardagen litt enklare, anten det gjeld å halde orden på helsa, planleggje ein tur i fjellet eller finne fram på ein ny stad.</p>
+    <p data-t="om.p2">Rafiki tyder venn på swahili. Det er det vi vil at appane våre skal vere: ein venn i lomma som er til å stole på.</p>
 
-    <h2 id="slik">Slik arbeider vi</h2>
+    <h2 id="slik" data-t="slik.h">Slik arbeider vi</h2>
     <dl class="prinsipp">
-      <dt>Kjelder framfor gjetting</dt>
-      <dd>Det vi skriv, byggjer på offisielle og fagleg sikre kjelder, og vi seier ifrå når noko er usikkert.</dd>
-      <dt>Enkelt å bruke</dt>
-      <dd>Appane skal vere lette å forstå, også for den som ikkje er glad i teknologi, og dei skal fungere når nettet er borte.</dd>
-      <dt>Det du gjer, blir hjå deg</dt>
-      <dd>Vi samlar ikkje inn meir data enn appen treng. Det du legg inn, blir på telefonen din.</dd>
+      <dt data-t="d1t">Kjelder framfor gjetting</dt>
+      <dd data-t="d1">Det vi skriv, byggjer på offisielle og fagleg sikre kjelder, og vi seier ifrå når noko er usikkert.</dd>
+      <dt data-t="d2t">Enkelt å bruke</dt>
+      <dd data-t="d2">Appane skal vere lette å forstå, også for den som ikkje er glad i teknologi, og dei skal fungere når nettet er borte.</dd>
+      <dt data-t="d3t">Det du gjer, blir hjå deg</dt>
+      <dd data-t="d3">Vi samlar ikkje inn meir data enn appen treng. Det du legg inn, blir på telefonen din.</dd>
     </dl>
 
 
-    <h2 id="kontakt">Kontakt</h2>
+    <h2 id="kontakt" data-t="kontakt.h">Kontakt</h2>
     <dl class="kontakt">
-      <dt>E-post</dt>
+      <dt data-t="k.epost">E-post</dt>
       <dd><a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a></dd>
-      <dt>Org.nr.</dt>
+      <dt data-t="k.org">Org.nr.</dt>
       <dd>938 727 856</dd>
-      <dt>Stad</dt>
-      <dd>5397 Bekkjarvik, Noreg</dd>
+      <dt data-t="k.stad">Stad</dt>
+      <dd data-t="k.stadv">5397 Bekkjarvik, Noreg</dd>
     </dl>
 
-    <div class="english" id="english" lang="en">
+    <div class="english" id="english" lang="en" data-berre-sprak="nn sw">
       <h2>In English</h2>
       <p>Rafiki Digital is a small Norwegian company in Bekkjarvik, on the west coast of Norway. We make apps and digital tools for everyday life and the outdoors, built to be simple, reliable and respectful of your data. Our apps are <a href="diabetes/">Rafiki – Diabetes Logbook</a>, a free logbook for people living with diabetes, made for Africa, and <a href="nordnorge/">Northern Norway Winter Guide</a>, a guide to the northern lights and winter travel in the Arctic. Contact us at <a href="mailto:post.rafiki.digital@gmail.com">post.rafiki.digital@gmail.com</a>.</p>
     </div>

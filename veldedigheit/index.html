@@ -45,6 +45,48 @@
   .tekst { max-width: 38rem; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
   .tekst h1 { font-weight: 400; font-size: 2.4rem; line-height: 1.15; margin: 0 0 .8rem; color: #F2F4F1; }
   .tekst p { margin: 0 0 1.1rem; }
+
+  /* Prosjektnamnet øvst i biletet */
+  .tittel { position: absolute; left: 0; right: 0; top: 5.2rem; z-index: 2; max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; pointer-events: none; }
+  .tittel h1 { margin: 0; font-weight: 300; font-size: clamp(2.6rem, 6.4vw, 5rem); line-height: 1; letter-spacing: -.02em; color: #F7F3EA; text-shadow: 0 2px 18px rgba(8,14,20,.6), 0 0 2px rgba(8,14,20,.4); }
+
+  /* Språkknappen */
+  .meny ul .sprak { display: inline-flex; border: 1px solid rgba(242,244,241,.5); border-radius: 999px; overflow: hidden; align-self: center; }
+  .sprak button { font: inherit; font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: #F2F4F1; background: transparent; border: 0; padding: .2rem .6rem; min-height: 32px; cursor: pointer; }
+  .sprak button[aria-pressed="true"] { background: #F2F4F1; color: var(--fjord); }
+  .sprak button:focus-visible { outline: 2px solid var(--sol); outline-offset: -2px; }
+
+  /* Bloggen: sortering til venstre, innlegga til høgre */
+  .blogg { max-width: 66rem; margin: 0 auto; padding: 3.2rem 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; }
+  .sidemeny { flex: 1 1 13rem; max-width: 15rem; position: sticky; top: 1.2rem; }
+  .sidemeny h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 0 0 1.2rem; color: #F2F4F1; }
+  .sidemeny h3 { font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #A9BDB2; margin: 0 0 .5rem; }
+  .gruppe { margin-bottom: 1.6rem; }
+  .val { display: flex; flex-direction: column; gap: .3rem; }
+  .val button { font: inherit; font-size: 1rem; text-align: left; color: #E4EAE6; background: transparent; border: 1px solid transparent; border-radius: 10px; padding: .45rem .75rem; min-height: 44px; cursor: pointer; display: flex; justify-content: space-between; gap: .8rem; }
+  .val button:hover { border-color: rgba(228,234,230,.22); }
+  .val button[aria-pressed="true"] { background: rgba(228,234,230,.1); border-color: rgba(201,154,75,.7); color: #F2F4F1; }
+  .val button:focus-visible { outline: 2px solid var(--sol); outline-offset: 2px; }
+  .val .tal { color: #A9BDB2; font-size: .9rem; }
+  .innlegg { flex: 999 1 26rem; min-width: 0; display: flex; flex-direction: column; gap: 1.2rem; }
+  .post { background: rgba(228,234,230,.06); border: 1px solid rgba(228,234,230,.18); border-radius: 14px; padding: 1.4rem 1.5rem 1.2rem; }
+  .post .meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .9rem; color: #A9BDB2; margin-bottom: .4rem; }
+  .post .kat { color: var(--sol); font-style: italic; }
+  .post h3 { margin: 0 0 .5rem; font-weight: 400; font-size: 1.55rem; line-height: 1.25; color: #F2F4F1; }
+  .post p { margin: 0 0 .9rem; }
+  .post .merknad { font-size: .9rem; font-style: italic; color: #A9BDB2; }
+  .post details summary { cursor: pointer; color: #F2F4F1; text-decoration: underline; text-decoration-color: var(--sol); text-underline-offset: .2em; list-style: none; display: inline-block; min-height: 44px; line-height: 44px; }
+  .post details summary::-webkit-details-marker { display: none; }
+  .post details[open] summary { margin-bottom: .4rem; }
+  .tomt { color: #A9BDB2; font-style: italic; }
+
+  @media (max-width: 700px) {
+    .tittel { top: 9.4rem; }
+    .blogg { gap: 1.5rem; padding-top: 2.4rem; }
+    .sidemeny { position: static; max-width: none; flex-basis: 100%; }
+    .val { flex-direction: row; flex-wrap: wrap; }
+    .val button { border-color: rgba(228,234,230,.22); }
+  }
   footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
 
   @media (max-width: 34rem) {
@@ -90,12 +132,12 @@
     <div class="inn">
       <a class="merke" href="/">Rafiki Digital</a>
       <ul>
-        <li><a href="/#appar">Appar</a></li>
-        <li><a href="/#om">Om oss</a></li>
-        <li><a href="/#slik">Slik arbeider vi</a></li>
-        <li><a href="/veldedigheit/" aria-current="page">Veldedigheit</a></li>
-        <li><a href="/#kontakt">Kontakt</a></li>
-        <li><a href="/#english" lang="en">English</a></li>
+        <li><a href="/#appar" data-t="nav.appar">Appar</a></li>
+        <li><a href="/#om" data-t="nav.om">Om oss</a></li>
+        <li><a href="/#slik" data-t="nav.slik">Slik arbeider vi</a></li>
+        <li><a href="/veldedigheit/" aria-current="page" data-t="nav.veld">Veldedigheit</a></li>
+        <li><a href="/#kontakt" data-t="nav.kontakt">Kontakt</a></li>
+        <li class="sprak" role="group" aria-label="Språk / Language / Lugha"><button type="button" data-lang="nn" lang="nn" title="Norsk" aria-pressed="true">NO</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button><button type="button" data-lang="sw" lang="sw" title="Kiswahili" aria-pressed="false">SW</button></li>
       </ul>
     </div>
   </nav>
@@ -691,18 +733,132 @@
 <g class="anim-heartbeat"><image href="hjertelys.webp" x="203.8" y="585.8" width="221.3" height="175.6"/></g>
 <image href="hender.webp" x="-123.8" y="404.8" width="756.0" height="495.2" filter="url(#m-shadow)"/>
 </svg>
+  <div class="tittel"><h1 data-t="hero.tittel">Ei hand frå oven</h1></div>
 </header>
 
 <main>
-  <div class="tekst">
-    <h1>Ei hand frå oven</h1>
-    <!-- Tekst om veldedigheitsarbeidet kjem her. -->
-  </div>
+  <section class="blogg" aria-labelledby="blogg-h">
+    <aside class="sidemeny" aria-labelledby="blogg-h">
+      <h2 id="blogg-h" data-t="blogg.h">Innlegg</h2>
+      <div class="gruppe">
+        <h3 data-t="sort.h">Sorter</h3>
+        <div class="val" role="group">
+          <button type="button" data-sort="ny" aria-pressed="true" data-t="sort.ny">Nyaste først</button>
+          <button type="button" data-sort="gml" aria-pressed="false" data-t="sort.gml">Eldste først</button>
+        </div>
+      </div>
+      <div class="gruppe">
+        <h3 data-t="kat.h">Kategori</h3>
+        <div class="val" id="kategoriar" role="group"></div>
+      </div>
+    </aside>
+    <div class="innlegg" id="innlegg" aria-live="polite">
+      <noscript><p>Slå på JavaScript for å sjå innlegga.</p></noscript>
+    </div>
+  </section>
 </main>
 
 <footer>
   RAFIKI - DIGITAL - ELHOLM, enkeltpersonføretak, org.nr. 938 727 856
 </footer>
 
+
+<script>
+window.TEKST = {
+  en: {
+    "nav.appar": "Apps", "nav.om": "About us", "nav.slik": "How we work", "nav.veld": "Charity", "nav.kontakt": "Contact",
+    "hero.tittel": "A Hand from Above", "blogg.h": "Posts",
+    "sort.h": "Sort", "sort.ny": "Newest first", "sort.gml": "Oldest first",
+    "kat.h": "Category", "kat.alle": "All",
+    "les": "Read more", "tomt": "No posts in this category yet.",
+    "ikkje": "This post is not yet available in English, so it is shown in Norwegian.",
+    "_tittel": "A Hand from Above – Rafiki Digital"
+  },
+  sw: {
+    "nav.appar": "Programu", "nav.om": "Kuhusu sisi", "nav.slik": "Jinsi tunavyofanya kazi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
+    "hero.tittel": "Mkono Kutoka Juu", "blogg.h": "Machapisho",
+    "sort.h": "Panga", "sort.ny": "Mapya kwanza", "sort.gml": "Ya zamani kwanza",
+    "kat.h": "Kategoria", "kat.alle": "Zote",
+    "les": "Soma zaidi", "tomt": "Bado hakuna machapisho katika kategoria hii.",
+    "ikkje": "Chapisho hili bado halipatikani kwa Kiswahili, kwa hivyo linaonyeshwa kwa Kinorwe.",
+    "_tittel": "Mkono Kutoka Juu – Rafiki Digital"
+  },
+  nn: { "kat.alle": "Alle", "les": "Les meir", "tomt": "Ingen innlegg i denne kategorien enno." }
+};
+</script>
+<script src="../assets/sprak.js"></script>
+<script>
+/* Bloggen: innlegga ligg i innlegg.json. Nytt innlegg = nytt objekt i lista "innlegg". */
+(function () {
+  var data = null, sort = 'ny', kat = 'alle';
+  var LOCALE = { nn: 'nn-NO', en: 'en-GB', sw: 'sw' };
+  var boks = document.getElementById('innlegg');
+  var katBoks = document.getElementById('kategoriar');
+
+  function tx(k) { var l = Sprak.no(); var d = window.TEKST; return (d[l] && d[l][k]) || d.nn[k] || k; }
+  function paa(obj) { var l = Sprak.no(); return obj && obj[l] ? { v: obj[l], ok: true } : { v: obj ? obj.nn : '', ok: l === 'nn' }; }
+  function el(tag, attrs, tekst) { var e = document.createElement(tag); for (var a in attrs || {}) e.setAttribute(a, attrs[a]); if (tekst != null) e.textContent = tekst; return e; }
+
+  var MND = ['januar','februar','mars','april','mai','juni','juli','august','september','oktober','november','desember'];
+  function dato(s) {
+    if (Sprak.no() === 'nn') { var d = s.split('-'); return parseInt(d[2], 10) + '. ' + MND[parseInt(d[1], 10) - 1] + ' ' + d[0]; }
+    try { return new Intl.DateTimeFormat(LOCALE[Sprak.no()], { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(s + 'T12:00:00')); }
+    catch (e) { return s; }
+  }
+
+  function teiknKategoriar() {
+    katBoks.textContent = '';
+    var tal = {};
+    data.innlegg.forEach(function (p) { tal[p.kategori] = (tal[p.kategori] || 0) + 1; });
+    var liste = [['alle', tx('kat.alle'), data.innlegg.length]];
+    Object.keys(data.kategoriar).forEach(function (k) { if (tal[k]) liste.push([k, paa(data.kategoriar[k]).v, tal[k]]); });
+    liste.forEach(function (r) {
+      var b = el('button', { type: 'button', 'aria-pressed': String(kat === r[0]) });
+      b.appendChild(el('span', {}, r[1])); b.appendChild(el('span', { class: 'tal' }, String(r[2])));
+      b.addEventListener('click', function () { kat = r[0]; teikn(); });
+      katBoks.appendChild(b);
+    });
+  }
+
+  function teiknInnlegg() {
+    boks.textContent = '';
+    var liste = data.innlegg.filter(function (p) { return kat === 'alle' || p.kategori === kat; });
+    liste.sort(function (a, b) { return sort === 'ny' ? b.dato.localeCompare(a.dato) : a.dato.localeCompare(b.dato); });
+    if (!liste.length) { boks.appendChild(el('p', { class: 'tomt' }, tx('tomt'))); return; }
+    liste.forEach(function (p) {
+      var art = el('article', { class: 'post', id: p.id });
+      var meta = el('div', { class: 'meta' });
+      meta.appendChild(el('time', { datetime: p.dato }, dato(p.dato)));
+      if (data.kategoriar[p.kategori]) meta.appendChild(el('span', { class: 'kat' }, paa(data.kategoriar[p.kategori]).v));
+      art.appendChild(meta);
+      var t = paa(p.tittel), i = paa(p.ingress), x = paa(p.tekst);
+      if (!t.ok || !x.ok) { art.appendChild(el('p', { class: 'merknad' }, tx('ikkje'))); }
+      art.appendChild(el('h3', {}, t.v));
+      if (i.v) art.appendChild(el('p', {}, i.v));
+      if (x.v && x.v.length) {
+        var d = el('details'); d.appendChild(el('summary', {}, tx('les')));
+        x.v.forEach(function (avsnitt) { d.appendChild(el('p', {}, avsnitt)); });
+        art.appendChild(d);
+      }
+      boks.appendChild(art);
+    });
+  }
+
+  function teikn() {
+    if (!data) return;
+    document.querySelectorAll('[data-sort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.sort === sort)); });
+    teiknKategoriar(); teiknInnlegg();
+  }
+
+  document.querySelectorAll('[data-sort]').forEach(function (b) {
+    b.addEventListener('click', function () { sort = b.dataset.sort; teikn(); });
+  });
+  document.addEventListener('sprak', teikn);
+
+  fetch('innlegg.json', { cache: 'no-cache' }).then(function (r) { return r.json(); })
+    .then(function (j) { data = j; teikn(); })
+    .catch(function () { boks.appendChild(el('p', { class: 'tomt' }, 'Kunne ikkje hente innlegga.')); });
+})();
+</script>
 </body>
 </html>
