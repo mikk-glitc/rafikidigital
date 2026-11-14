@@ -34,9 +34,6 @@
   @media (max-width: 700px) {
     .hand { height: 81.25vw; min-height: 0; }
     .hand > svg.brei { left: -15vw !important; width: 130vw !important; height: calc(100% + 2px) !important; }
-    /* berre teksten blir trekt opp, biletet er urørt: innlegga byrjar ved handleddet */
-    main { position: relative; z-index: 2; margin-top: -3.4rem; }
-    .blogg { padding-top: 0 !important; }
   }
 
   /* Meny: same oppsett som framsida, lys tekst over den mørke himmelen */
@@ -63,7 +60,7 @@
   .sidemeny h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.2; margin: 0 0 1.2rem; color: #F2F4F1; }
   .sidemeny h3 { font-size: .85rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #A9BDB2; margin: 0 0 .5rem; }
   .gruppe { margin-bottom: 1.6rem; }
-  .sidemeny.tom .gruppe { display: none; }
+
   .val { display: flex; flex-direction: column; gap: .3rem; }
   .val button { font: inherit; font-size: 1rem; text-align: left; color: #E4EAE6; background: transparent; border: 1px solid transparent; border-radius: 10px; padding: .45rem .75rem; min-height: 44px; cursor: pointer; display: flex; justify-content: space-between; gap: .8rem; }
   .val button:hover { border-color: rgba(228,234,230,.22); }
@@ -85,10 +82,13 @@
   @media (max-width: 700px) {
     .tittel { top: 3.2rem; }
     .tittel h1 { font-size: 2.2rem; }
-    .blogg { gap: 1.5rem; padding-top: 2.4rem; }
-    .sidemeny { position: static; max-width: none; flex-basis: 100%; }
-    .val { flex-direction: row; flex-wrap: wrap; }
-    .val button { border-color: rgba(228,234,230,.22); }
+    .blogg { flex-wrap: nowrap; gap: 1rem; padding: .4rem 1.1rem 2rem; }
+    .sidemeny { position: static; flex: 0 0 7.2rem; max-width: 7.2rem; border-right: 1px solid rgba(228,234,230,.18); padding-right: .8rem; }
+    .sidemeny h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .sidemeny .gruppe.sort { display: none; }
+    .sidemeny h3 { font-size: .72rem; }
+    .val button { font-size: .92rem; padding: .35rem .5rem; min-height: 40px; }
+    .innlegg { flex: 1 1 auto; padding-top: 3.2rem; }
   }
   footer { background: transparent; color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
 
@@ -626,7 +626,7 @@
   <section class="blogg" aria-labelledby="blogg-h">
     <aside class="sidemeny" aria-labelledby="blogg-h">
       <h2 id="blogg-h" data-t="blogg.h">Innlegg</h2>
-      <div class="gruppe">
+      <div class="gruppe sort">
         <h3 data-t="sort.h">Sorter</h3>
         <div class="val" role="group">
           <button type="button" data-sort="ny" aria-pressed="true" data-t="sort.ny">Nyaste først</button>
@@ -697,7 +697,7 @@ window.TEKST = {
     var tal = {};
     data.innlegg.forEach(function (p) { tal[p.kategori] = (tal[p.kategori] || 0) + 1; });
     var liste = [['alle', tx('kat.alle'), data.innlegg.length]];
-    Object.keys(data.kategoriar).forEach(function (k) { if (tal[k]) liste.push([k, paa(data.kategoriar[k]).v, tal[k]]); });
+    Object.keys(data.kategoriar).forEach(function (k) { liste.push([k, paa(data.kategoriar[k]).v, tal[k] || 0]); });
     liste.forEach(function (r) {
       var b = el('button', { type: 'button', 'aria-pressed': String(kat === r[0]) });
       b.appendChild(el('span', {}, r[1])); b.appendChild(el('span', { class: 'tal' }, String(r[2])));
