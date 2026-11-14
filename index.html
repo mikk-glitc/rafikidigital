@@ -50,6 +50,10 @@
     color: var(--fjord);
     text-shadow: 0 0 14px var(--himmel);
   }
+  /* Lenkjene til arbeidet, rett under namnet */
+  .omrade { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.6rem 0 0; }
+  .omrade a { text-decoration: none; font-weight: 400; font-size: clamp(1rem, 2.2vw, 1.2rem); color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .45rem 1.15rem; transition: background .15s; }
+  .omrade a:hover { background: var(--fjord); text-decoration: none; }
   .namn p {
     margin: 1.1rem 0 0;
     max-width: 26rem;
@@ -125,7 +129,7 @@
   @media (max-width: 34rem) {
     /* menyen går over to liner på mobil: skyv hovudoverskrifta godt ned under han */
     .meny .inn { padding: .9rem 10.5rem .9rem 1.2rem; }
-    .namn { top: 8.5rem; }
+    .namn { top: 6.5rem; }
     .meny ul { gap: .2rem 1rem; }
     .meny ul a { font-size: .95rem; }
   }
@@ -144,7 +148,7 @@
 <script>
 window.TEKST = {
   en: {
-    "nav.prosjekt": "Projects", "nav.appar": "Apps", "nav.verktoy": "Digital tools", "nav.om": "About us", "nav.veld": "Charity", "nav.kontakt": "Contact",
+    "nav.prosjekt": "Projects", "nav.appar": "Apps", "nav.verktoy": "Digital tools", "nav.3d": "3D printing", "nav.om": "About us", "nav.veld": "Charity", "nav.kontakt": "Contact us",
     "hero.tag": "Projects, digital solutions and apps.",
     "siste.h": "Latest news", "siste.dato": "10 November 2026",
     "siste.tittel": "Northern Norway Winter Guide has been sent to Google Play",
@@ -154,7 +158,7 @@ window.TEKST = {
     "_tittel": "Rafiki Digital"
   },
   sw: {
-    "nav.prosjekt": "Miradi", "nav.appar": "Programu", "nav.verktoy": "Zana za kidijitali", "nav.om": "Kuhusu sisi", "nav.veld": "Hisani", "nav.kontakt": "Mawasiliano",
+    "nav.prosjekt": "Miradi", "nav.appar": "Programu", "nav.verktoy": "Zana za kidijitali", "nav.3d": "Uchapishaji wa 3D", "nav.om": "Kuhusu sisi", "nav.veld": "Hisani", "nav.kontakt": "Wasiliana nasi",
     "hero.tag": "Miradi, suluhisho za kidijitali na programu.",
     "siste.h": "Habari mpya", "siste.dato": "10 Novemba 2026",
     "siste.tittel": "Northern Norway Winter Guide imetumwa Google Play",
@@ -173,12 +177,9 @@ window.TEKST = {
   <nav class="meny" aria-label="Meny">
     <div class="inn">
       <ul>
-        <li><a href="prosjekt/" data-t="nav.prosjekt">Prosjekt</a></li>
-        <li><a href="appar/" data-t="nav.appar">Appar</a></li>
-        <li><a href="verktoy/" data-t="nav.verktoy">Digitale verktøy</a></li>
         <li><a href="om/" data-t="nav.om">Om oss</a></li>
         <li><a href="veldedigheit/" data-t="nav.veld">Veldedigheit</a></li>
-        <li><a href="#kontakt" data-t="nav.kontakt">Kontakt</a></li>
+        <li><a href="#kontakt" data-t="nav.kontakt">Kontakt oss</a></li>
       </ul>
     </div>
   </nav>
@@ -260,7 +261,12 @@ window.TEKST = {
 
   <div class="namn">
     <h1>Rafiki Digital</h1>
-    <p data-t="hero.tag">Prosjekt, digitale løysingar og appar.</p>
+    <nav class="omrade" aria-label="Arbeidet vårt">
+      <a href="prosjekt/" data-t="nav.prosjekt">Prosjekt</a>
+      <a href="appar/" data-t="nav.appar">Appar</a>
+      <a href="verktoy/" data-t="nav.verktoy">Digitale verktøy</a>
+      <a href="3d-print/" data-t="nav.3d">3D-print</a>
+    </nav>
   </div>
 </header>
 
