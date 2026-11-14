@@ -20,8 +20,8 @@
   .flis .lenkjer { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: .98rem; }
   .flis .merk { font-size: .85rem; }
   .tekst { max-width: 46rem; }
-  .omrade { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.1rem 0 0; }
-  .omrade a { text-decoration: none; font-weight: 400; font-size: 1rem; color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .35rem 1rem; text-shadow: none; }
+  .omrade { display: flex; flex-wrap: nowrap; gap: clamp(.25rem, 1.2vw, .5rem); margin: 1.1rem 0 0; }
+  .omrade a { white-space: nowrap; text-decoration: none; font-weight: 400; font-size: clamp(.78rem, 3.3vw, 1rem); padding: .35rem clamp(.55rem, 2.2vw, 1rem) !important; color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .35rem 1rem; text-shadow: none; }
   .omrade a:hover { background: var(--fjord); }
   .omrade a[aria-current="page"] { background: #F2F4F1; color: var(--furu); border-color: var(--furu); }
   @media (min-width:35rem) and (max-width:88rem) { .band .inn { padding-right: 12rem; } }
@@ -37,12 +37,14 @@ window.TEKST = { en: {
  "nav.veld": "Charity",
  "nav.kontakt": "Contact us",
  "s.h": "Apps",
- "s.under": "The apps we have released.",
+ "s.under": "Our apps.",
  "a2.st": "In review on Google Play",
  "a1.st": "Coming soon on Google Play",
  "om": "About the app",
  "pers": "Privacy",
  "a2": "Northern lights, places, stories and safe winter travel from the Arctic Circle to Finnmark. Works offline, in nine languages. No account and no tracking.",
+ "a3.h": "Svalbard Guide",
+ "a3": "Safety, northern lights, midnight sun and places in Svalbard, all year round. Works offline.",
  "a1": "A free logbook for people living with diabetes, and for their families. Made for Africa, in 34 languages. Everything you log stays on your phone.",
  "_tittel": "Apps – Rafiki Digital"
 }, sw: {
@@ -54,12 +56,14 @@ window.TEKST = { en: {
  "nav.veld": "Hisani",
  "nav.kontakt": "Wasiliana nasi",
  "s.h": "Programu",
- "s.under": "Programu tulizotoa.",
+ "s.under": "Programu zetu.",
  "a2.st": "Inakaguliwa kwenye Google Play",
  "a1.st": "Inakuja hivi karibuni kwenye Google Play",
  "om": "Kuhusu programu",
  "pers": "Faragha",
  "a2": "Mwanga wa kaskazini, maeneo, hadithi na safari salama wakati wa baridi kutoka Mzingo wa Aktiki hadi Finnmark. Inafanya kazi bila mtandao, kwa lugha tisa. Hakuna akaunti wala ufuatiliaji.",
+ "a3.h": "Svalbard Guide",
+ "a3": "Usalama, mwanga wa kaskazini, jua la usiku wa manane na maeneo ya Svalbard, mwaka mzima. Inafanya kazi bila mtandao.",
  "a1": "Daftari la bure kwa watu wanaoishi na kisukari, na kwa familia zao. Limetengenezwa kwa ajili ya Afrika, kwa lugha 34. Kila unachoandika kinabaki kwenye simu yako.",
  "_tittel": "Programu – Rafiki Digital"
 } };
@@ -101,7 +105,7 @@ window.TEKST = { en: {
     <div class="tittel">
       <div>
         <h1 data-t="s.h">Appar</h1>
-        <p data-t="s.under">Appane vi har lagt ut.</p>
+        <p data-t="s.under">Appane våre.</p>
         <nav class="omrade" aria-label="Arbeidet vårt">
           <a href="../prosjekt/" data-t="nav.prosjekt">Prosjekt</a>
           <a href="../appar/" aria-current="page" data-t="nav.appar">Appar</a>
@@ -125,6 +129,11 @@ window.TEKST = { en: {
         <div class="topp"><img src="../diabetes/icon.png" alt="" width="52" height="52"><div><h3>Rafiki – Diabetes Logbook</h3><span class="merk" data-t="a1.st">Kjem snart på Google Play</span></div></div>
         <p data-t="a1">Ei gratis loggbok for menneske som lever med diabetes, og for familien deira. Laga for Afrika, på 34 språk. Alt du loggar, blir på telefonen.</p>
         <div class="lenkjer"><a href="../diabetes/" data-t="om">Om appen</a><a href="../diabetes/privacy.html" data-t="pers">Personvern</a></div>
+      </article>
+      <article class="flis">
+        <div class="topp"><img src="../svalbard/icon.png" alt="" width="52" height="52"><div><h3 data-t="a3.h">Svalbard-guiden</h3><span class="merk" data-t="a1.st">Kjem snart på Google Play</span></div></div>
+        <p data-t="a3">Tryggleik, nordlys, midnattssol og stader på Svalbard, heile året. Verkar utan nett.</p>
+        <div class="lenkjer"><a href="../svalbard/" data-t="om">Om appen</a><a href="../svalbard/personvern.html" data-t="pers">Personvern</a></div>
       </article>
     </div>
   </div>

@@ -20,8 +20,8 @@
   .flis .lenkjer { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: .98rem; }
   .flis .merk { font-size: .85rem; }
   .tekst { max-width: 46rem; }
-  .omrade { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.1rem 0 0; }
-  .omrade a { text-decoration: none; font-weight: 400; font-size: 1rem; color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .35rem 1rem; text-shadow: none; }
+  .omrade { display: flex; flex-wrap: nowrap; gap: clamp(.25rem, 1.2vw, .5rem); margin: 1.1rem 0 0; }
+  .omrade a { white-space: nowrap; text-decoration: none; font-weight: 400; font-size: clamp(.78rem, 3.3vw, 1rem); padding: .35rem clamp(.55rem, 2.2vw, 1rem) !important; color: #F2F4F1; background: rgba(38,56,47,.86); border: 1px solid rgba(38,56,47,.9); border-radius: 999px; padding: .35rem 1rem; text-shadow: none; }
   .omrade a:hover { background: var(--fjord); }
   .omrade a[aria-current="page"] { background: #F2F4F1; color: var(--furu); border-color: var(--furu); }
   @media (min-width:35rem) and (max-width:88rem) { .band .inn { padding-right: 12rem; } }
@@ -38,14 +38,7 @@ window.TEKST = { en: {
  "nav.kontakt": "Contact us",
  "s.h": "Projects",
  "s.under": "What we are working on now.",
- "arbeid": "In progress",
- "les": "Read more",
- "p1.h": "Svalbard Guide",
- "p1": "Safety, northern lights, midnight sun and places in Svalbard, all year round.",
- "p2.h": "Fjord and mountain guides",
- "p2": "Trolltunga, Preikestolen and Kjerag, and the Lysefjord.",
- "p3.h": "Nyumba and Pengesirkel",
- "p3": "More about these when they are ready.",
+ "snart": "Coming soon.",
  "_tittel": "Projects – Rafiki Digital"
 }, sw: {
  "nav.prosjekt": "Miradi",
@@ -57,14 +50,7 @@ window.TEKST = { en: {
  "nav.kontakt": "Wasiliana nasi",
  "s.h": "Miradi",
  "s.under": "Tunachofanyia kazi sasa.",
- "arbeid": "Inatengenezwa",
- "les": "Soma zaidi",
- "p1.h": "Svalbard Guide",
- "p1": "Usalama, mwanga wa kaskazini, jua la usiku wa manane na maeneo ya Svalbard, mwaka mzima.",
- "p2.h": "Miongozo ya fjord na milima",
- "p2": "Trolltunga, Preikestolen na Kjerag, na Lysefjord.",
- "p3.h": "Nyumba na Pengesirkel",
- "p3": "Zaidi kuhusu hizi zikiwa tayari.",
+ "snart": "Inakuja hivi karibuni.",
  "_tittel": "Miradi – Rafiki Digital"
 } };
 </script>
@@ -119,21 +105,7 @@ window.TEKST = { en: {
 
 <main>
   <div class="tekst">
-    <div class="fliser">
-      <article class="flis">
-        <div class="topp"><img src="../svalbard/icon.png" alt="" width="52" height="52"><div><h3 data-t="p1.h">Svalbard-guiden</h3><span class="merk" data-t="arbeid">Under arbeid</span></div></div>
-        <p data-t="p1">Tryggleik, nordlys, midnattssol og stader på Svalbard, heile året.</p>
-        <div class="lenkjer"><a href="../svalbard/" data-t="les">Les meir</a></div>
-      </article>
-      <article class="flis">
-        <div class="topp"><div><h3 data-t="p2.h">Fjord- og fjellguidar</h3><span class="merk" data-t="arbeid">Under arbeid</span></div></div>
-        <p data-t="p2">Trolltunga, Preikestolen og Kjerag, og Lysefjorden.</p>
-      </article>
-      <article class="flis">
-        <div class="topp"><div><h3 data-t="p3.h">Nyumba og Pengesirkel</h3><span class="merk" data-t="arbeid">Under arbeid</span></div></div>
-        <p data-t="p3">Meir om desse kjem når dei er klare.</p>
-      </article>
-    </div>
+    <p class="dempa" data-t="snart">Kjem snart.</p>
   </div>
 </main>
 
