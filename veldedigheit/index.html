@@ -650,20 +650,6 @@
       </div>
 
     </aside>
-    <article class="om-hand" id="om-hand" hidden>
-      <h2 data-t="om.tittel">Om Ei hand frå oven</h2>
-      <p data-t="om.p0">Det var ei hending eg hugsar godt, som sette preg på livet mitt og gav det retning vidare. Det var reisa til India.</p>
-      <p data-t="om.p1">Eg likte godt å reise, og året før hadde eg backpacka tre månader aleine i Asia. Året etter ville eg ut att, men hadde ikkje landa på kvar. Eg ville til Asia, men visste ikkje kvar. Eg var innom tanken på India, men slo han raskt frå meg. Etter ei stund kom tanken tilbake, og det var nettopp fordi eg hadde høyrt så mykje lite bra om India at eg måtte dra dit. Eg ville jo ha noko annleis.</p>
-      <p data-t="om.p2">For å vere heilt ærleg fekk eg stadfesta alle fordommane mine. Det var reint kaos, og eg vart svindla på løpande band, for både store og små summar, som ein naiv og godtruande nordmann. Det var utruleg utfordrande. Eg gjekk vel i alle turistfeller som fanst. Mange vonde og sinte kjensler blussa opp. Du blir på ein måte kjend med deg sjølv og kva som bur i deg. Samstundes som du ser andre kulturar og dårskapen til andre, blir sider ved deg sjølv som du ikkje visste om, openberre. Av og til blomstrar vi, og andre gonger ser vi det mørke i oss: det som ligg skjult, og som ikkje kjem fram før du står i den situasjonen.</p>
-      <p data-t="om.p3">Enden på visa var i alle fall at eg kom heim og vart medviten om takksemd. Takksemd for livet. Sjølv om ein ikkje har alt det andre har, kan ein vere takksam, for har ein heim, jobb og bil, har ein meir enn mange. Takksemd er grunnmuren i livsgleda. Glede kjem av takksemd, og anten ein har lite eller mykje, kan livet vere godt.</p>
-      <p data-t="om.p4">Det som førte meg inn mot veldedigheit, var eit av dei store spørsmåla: Kva er meininga med livet? Er det mogleg å gje det eit føremål, eller har det alt eitt? Eit vers i Skrifta har tala til meg:</p>
-      <blockquote><p data-t="om.sitat">«En ren og uplettet religion for Gud og Faderen er dette: å se til farløse og enker i deres nød, og å holde seg selv uplettet av verden.»</p><footer data-t="om.ref">Jakob 1,27</footer></blockquote>
-      <p data-t="om.p6">Skal ein vere religiøs, må ein sjå til dei som har det minst i samfunnet og prøve å halde seg sjølv rein. Enkjer og farlause hadde i gammal tid ingen mann eller far i livet sitt, og det var som regel han som var forsørgjaren. Difor måtte nokon sjå til dei. Ein kan gjere mykje religiøst, men det som har høgast verdi, er å sjå til dei som ikkje har nokon forsørgjar.</p>
-      <p data-t="om.p7">Både ei enkje og eit farlaust barn har hamna i ein situasjon dei ikkje har valt sjølve. Det tenkjer eg er ein viktig tanke, for ofte rotar vi oss sjølve opp i problem. Sjølvsagt skal vi hjelpe dei òg, men vi har eit større ansvar for å kome oss ut av situasjonar vi sjølve har sett oss i, enn av ein livssituasjon andre har sett oss i. Fedrar og menn kan ikkje velje å ikkje døy, men når nokon døyr, blir dei næraste sette i ein vanskeleg situasjon.</p>
-      <p data-t="om.p8">Dette verset tala til meg, og sidan har det vore ein draum å starte ein barneheim, eller å hjelpe nokon som driv med det.</p>
-      <p data-t="om.p9">Då eg vart far til dottera mi, fekk eg dessutan kjenne kva verkeleg kjærleik er. Eg kjende at det var godt å vere far, og at dette er noko eg likar. Å vere ein foreldrefigur for dei som ikkje har nokon, tenkjer eg stort om og ser opp til. Det er noko eg òg ønskjer å ta del i, og akkurat slik blir noko fødd på innsida.</p>
-      <p data-t="om.p10">Eg trur absolutt alle kan finne meining med livet ved å hjelpe andre. Ein må berre kome seg ovanpå sjølv først, og ha nok til å gje. :)</p>
-    </article>
     <div class="innlegg" id="innlegg" aria-live="polite">
       <noscript><p>Slå på JavaScript for å sjå innlegga.</p></noscript>
     </div>
@@ -725,7 +711,7 @@ window.TEKST = {
   function fane(tekst, valt, klikk, under) {
     var b = el('button', { type: 'button', 'aria-pressed': String(valt) }, tekst);
     if (under) b.className = 'under';
-    b.addEventListener('click', function () { klikk(); visOm = false; teikn(); });
+    b.addEventListener('click', function () { klikk(); teikn(); });
     return b;
   }
   function teiknKategoriar() {
@@ -769,11 +755,11 @@ window.TEKST = {
     });
   }
 
-  var omFane = document.getElementById('om-fane'), omHand = document.getElementById('om-hand'), visOm = false;
-  omFane.addEventListener('click', function () { visOm = !visOm; if (visOm) { kat = 'alle'; land = 'alle'; } teikn(); });
+  /* Om-fana viser innlegga i kategorien «om» */
+  var omFane = document.getElementById('om-fane');
+  omFane.addEventListener('click', function () { kat = kat === 'om' ? 'alle' : 'om'; land = 'alle'; teikn(); });
   function teikn() {
-    omFane.setAttribute('aria-pressed', String(visOm));
-    omHand.hidden = !visOm; boks.hidden = visOm;
+    omFane.setAttribute('aria-pressed', String(kat === 'om'));
     if (!data) return;
     document.querySelectorAll('[data-sort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.sort === sort)); });
     document.querySelector('.sidemeny').classList.toggle('tom', !data.innlegg.length);
