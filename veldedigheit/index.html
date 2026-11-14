@@ -18,19 +18,23 @@
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  body { margin: 0; background: var(--furu); color: #E4EAE6; font-family: "Spectral", Georgia, serif; font-weight: 300; font-size: 1.1875rem; line-height: 1.7; }
+  /* bakgrunnen held fram nedover i same fargar som botnen av biletet */
+  :root { --botn: linear-gradient(to right, #2c2e1b 0%, #31341e 10%, #353820 20%, #393d22 30%, #3b3e23 40%, #4f4425 50%, #5b4827 60%, #5f4b29 70%, #574424 80%, #4e3e21 90%, #45371d 100%); }
+  body { margin: 0; background: #3b3e23 var(--botn); color: #E4EAE6; font-family: "Spectral", Georgia, serif; font-weight: 300; font-size: 1.1875rem; line-height: 1.7; }
   a { color: #E4EAE6; text-decoration-color: var(--sol); text-underline-offset: .2em; text-decoration-thickness: 1px; }
   a:focus-visible { outline: 2px solid var(--sol); outline-offset: 3px; }
 
   /* Bakgrunnsbiletet: Noreg og Afrika som smeltar saman, med hendene i midten */
   .hand { position: relative; height: clamp(460px, 50.7vw, 820px); overflow: hidden; background: #2e4560; }
-  .hand > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hand > svg { position: absolute; inset: 0; width: 100%; height: calc(100% + 2px); display: block; }
   /* Mobil: eit enklare bilete i høgdeformat, der begge armane og heile hjartet får plass */
   .hand > svg.smal { display: none; }
-  .hand::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%; z-index: 1; pointer-events: none;
-    background: linear-gradient(rgba(38,56,47,0), rgba(38,56,47,.75) 60%, #26382F); }
+  /* mjuk overgang: biletet glir over i bakgrunnen under */
+  .hand::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 90px; z-index: 1; pointer-events: none;
+    background: var(--botn); -webkit-mask-image: linear-gradient(transparent, #000); mask-image: linear-gradient(transparent, #000); }
   @media (max-width: 700px) {
-    .hand { height: 100.7vw; min-height: 0; }
+    .hand { height: 106.7vw; min-height: 0; }
+    :root { --botn: linear-gradient(to right, #314627 0%, #364829 10%, #3b4a2a 20%, #404d2c 30%, #46502d 40%, #54522e 50%, #66552d 60%, #6a552c 70%, #6b552a 80%, #6c5529 90%, #6d5527 100%); }
     .hand > svg.brei { display: none; }
     .hand > svg.smal { display: block; }
   }
@@ -85,7 +89,7 @@
     .val { flex-direction: row; flex-wrap: wrap; }
     .val button { border-color: rgba(228,234,230,.22); }
   }
-  footer { background: var(--furu); color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
+  footer { background: transparent; color: #93A89C; font-size: .95rem; text-align: center; padding: 3.5rem 1.5rem 3rem; }
 
   @media (max-width: 34rem) {
     body { font-size: 1.0625rem; }
@@ -571,7 +575,7 @@
 </g>
 <circle cx="720" cy="560" r="230" fill="url(#heartGlow)"/>
 <filter id="handShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#120c06" flood-opacity="0.5"/></filter>
-<image href="hender.webp" x="-198" y="-84" width="1638" height="1073" preserveAspectRatio="xMidYMid meet" filter="url(#handShadow)"/>
+<defs><linearGradient id="b-fadeG" gradientUnits="userSpaceOnUse" x1="0" y1="610" x2="0" y2="730"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient><mask id="b-fade" maskUnits="userSpaceOnUse" x="-300" y="-200" width="2100" height="1300"><rect x="-300" y="-200" width="2100" height="1300" fill="url(#b-fadeG)"/></mask></defs><g mask="url(#b-fade)"><image href="hender.webp" x="-198" y="-84" width="1638" height="1073" preserveAspectRatio="xMidYMid meet" filter="url(#handShadow)"/></g>
 <defs><filter id="raySoft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter><filter id="bloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter></defs>
 <g style="mix-blend-mode: screen" pointer-events="none">
 <g class="anim-heartbeat"><image href="hjertelys.webp" x="511.8" y="308.2" width="479.6" height="380.4" filter="url(#bloom)" opacity="0.15"/></g>
@@ -613,8 +617,10 @@
 <rect width="1440" height="900" filter="url(#grain)" opacity="0.16" style="mix-blend-mode: multiply"/>
 <rect width="1440" height="900" fill="#c79b55" opacity="0.08" style="mix-blend-mode: multiply"/>
 <rect width="1440" height="900" fill="url(#vign)"/>
+<defs><linearGradient id="b-botn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16170f" stop-opacity="0"/><stop offset="1" stop-color="#16170f" stop-opacity="0.55"/></linearGradient></defs>
+<rect y="560" width="1440" height="170" fill="url(#b-botn)"/>
 </svg>
-  <svg class="smal" viewBox="0 0 600 604" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <svg class="smal" viewBox="0 0 600 640" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <defs>
 <linearGradient id="m-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b425c"/><stop offset="0.45" stop-color="#7d8fa0"/><stop offset="0.72" stop-color="#ecd3a2"/></linearGradient>
 <linearGradient id="m-warm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d2c3d" stop-opacity="0.45"/><stop offset="0.5" stop-color="#e8b878" stop-opacity="0"/><stop offset="1" stop-color="#eea85c" stop-opacity="0.55"/></linearGradient>
@@ -721,10 +727,11 @@
 <path d="M104,538 q2,-7 3,-12" stroke="#3f6233" stroke-width="1.6" opacity="0.8"/>
 <path d="M229,783 q-3,-9 4,-14" stroke="#3f6233" stroke-width="1.6" opacity="0.8"/>
 </g>
-<g transform="translate(0,-296)">
-<rect y="600" width="600" height="300" fill="url(#m-dark)"/>
+<defs><linearGradient id="m-botn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16170f" stop-opacity="0"/><stop offset="1" stop-color="#16170f" stop-opacity="0.55"/></linearGradient></defs>
+<rect y="470" width="600" height="170" fill="url(#m-botn)"/>
+<g transform="translate(0,-395)">
 <g class="anim-heartbeat"><image href="hjertelys.webp" x="203.8" y="585.8" width="221.3" height="175.6"/></g>
-<image href="hender.webp" x="-123.8" y="404.8" width="756.0" height="495.2" filter="url(#m-shadow)"/>
+<defs><linearGradient id="m-fadeG" gradientUnits="userSpaceOnUse" x1="0" y1="780" x2="0" y2="900"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient><mask id="m-fade" maskUnits="userSpaceOnUse" x="-200" y="300" width="1000" height="700"><rect x="-200" y="300" width="1000" height="700" fill="url(#m-fadeG)"/></mask></defs><g mask="url(#m-fade)"><image href="hender.webp" x="-123.8" y="404.8" width="756.0" height="495.2" filter="url(#m-shadow)"/></g>
 </g>
 </svg>
   <div class="tittel"><h1 data-t="hero.tittel">Ei hand frå oven</h1></div>
