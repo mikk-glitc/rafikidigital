@@ -66,7 +66,7 @@
   .val button:hover { border-color: rgba(228,234,230,.22); }
   .val button[aria-pressed="true"] { background: rgba(228,234,230,.1); border-color: rgba(201,154,75,.7); color: #F2F4F1; }
   .val button:focus-visible { outline: 2px solid var(--sol); outline-offset: 2px; }
-  .val .tal { color: #A9BDB2; font-size: .9rem; }
+  .val button.under { margin-left: 1rem; font-size: .92em; color: #C9D3CC; }
   .innlegg { flex: 999 1 26rem; min-width: 0; display: flex; flex-direction: column; gap: 1.2rem; }
   .post { background: rgba(228,234,230,.06); border: 1px solid rgba(228,234,230,.18); border-radius: 14px; padding: 1.4rem 1.5rem 1.2rem; }
   .post .meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .9rem; color: #A9BDB2; margin-bottom: .4rem; }
@@ -637,10 +637,7 @@
         <h3 data-t="kat.h">Tema</h3>
         <div class="val" id="kategoriar" role="group"></div>
       </div>
-      <div class="gruppe">
-        <h3 data-t="land.h">Land</h3>
-        <div class="val" id="landval" role="group"></div>
-      </div>
+
     </aside>
     <div class="innlegg" id="innlegg" aria-live="polite">
       <noscript><p>Slå på JavaScript for å sjå innlegga.</p></noscript>
@@ -683,7 +680,7 @@ window.TEKST = {
   var data = null, sort = 'ny', kat = 'alle', land = 'alle';
   var LOCALE = { nn: 'nn-NO', en: 'en-GB', sw: 'sw' };
   var boks = document.getElementById('innlegg');
-  var katBoks = document.getElementById('kategoriar'), landBoks = document.getElementById('landval');
+  var katBoks = document.getElementById('kategoriar');
 
   function tx(k) { var l = Sprak.no(); var d = window.TEKST; return (d[l] && d[l][k]) || d.nn[k] || k; }
   function paa(obj) { var l = Sprak.no(); return obj && obj[l] ? { v: obj[l], ok: true } : { v: obj ? obj.nn : '', ok: l === 'nn' }; }
@@ -696,21 +693,24 @@ window.TEKST = {
     catch (e) { return s; }
   }
 
-  /* Faner: trykk for å velje, trykk igjen for å sjå alle */
-  function teiknVal(boksen, kjelde, felt, valt, set) {
-    boksen.textContent = '';
-    var tal = {};
-    data.innlegg.forEach(function (p) { tal[p[felt]] = (tal[p[felt]] || 0) + 1; });
-    Object.keys(kjelde || {}).forEach(function (k) {
-      var b = el('button', { type: 'button', 'aria-pressed': String(valt === k) });
-      b.appendChild(el('span', {}, paa(kjelde[k]).v)); b.appendChild(el('span', { class: 'tal' }, String(tal[k] || 0)));
-      b.addEventListener('click', function () { set(valt === k ? 'alle' : k); teikn(); });
-      boksen.appendChild(b);
-    });
+  /* Faner: trykk for å velje, trykk igjen for å sjå alle.
+     Har ei fane underkategoriar (t.d. Barnehjem: Kenya, Tanzania), opnar dei seg under fana når ho er vald. */
+  function fane(tekst, valt, klikk, under) {
+    var b = el('button', { type: 'button', 'aria-pressed': String(valt) }, tekst);
+    if (under) b.className = 'under';
+    b.addEventListener('click', function () { klikk(); teikn(); });
+    return b;
   }
   function teiknKategoriar() {
-    teiknVal(katBoks, data.kategoriar, 'kategori', kat, function (k) { kat = k; });
-    teiknVal(landBoks, data.land, 'land', land, function (k) { land = k; });
+    katBoks.textContent = '';
+    var uk = data.underkategoriar || {};
+    Object.keys(data.kategoriar).forEach(function (k) {
+      var open = kat === k;
+      katBoks.appendChild(fane(paa(data.kategoriar[k]).v, open, function () { kat = open ? 'alle' : k; land = 'alle'; }));
+      if (open && uk[k]) Object.keys(uk[k]).forEach(function (u) {
+        katBoks.appendChild(fane(paa(uk[k][u]).v, land === u, function () { land = land === u ? 'alle' : u; }, true));
+      });
+    });
   }
 
   function teiknInnlegg() {
@@ -723,7 +723,7 @@ window.TEKST = {
       var meta = el('div', { class: 'meta' });
       meta.appendChild(el('time', { datetime: p.dato }, dato(p.dato)));
       if (data.kategoriar[p.kategori]) meta.appendChild(el('span', { class: 'kat' }, paa(data.kategoriar[p.kategori]).v));
-      if (data.land && data.land[p.land]) meta.appendChild(el('span', { class: 'kat' }, paa(data.land[p.land]).v));
+      var uk = (data.underkategoriar || {})[p.kategori]; if (uk && uk[p.land]) meta.appendChild(el('span', { class: 'kat' }, paa(uk[p.land]).v));
       art.appendChild(meta);
       var t = paa(p.tittel), i = paa(p.ingress), x = paa(p.tekst);
       if (!t.ok || !x.ok) { art.appendChild(el('p', { class: 'merknad' }, tx('ikkje'))); }
