@@ -32,8 +32,9 @@
   .hand::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 60px; z-index: 1; pointer-events: none;
     background: var(--botn); -webkit-mask-image: linear-gradient(transparent, #000); mask-image: linear-gradient(transparent, #000); }
   @media (max-width: 700px) {
-    .hand { height: 81.25vw; min-height: 0; }
-    .hand > svg.brei { left: -15vw !important; width: 130vw !important; height: calc(100% + 2px) !important; }
+    .hand { height: 70vw; min-height: 0; }
+    .hand::after { height: 30px; }
+    .hand > svg.brei { left: -15vw !important; width: 130vw !important; height: 81.25vw !important; }
   }
 
   /* Meny: same oppsett som framsida, lys tekst over den mørke himmelen */
@@ -82,7 +83,7 @@
   @media (max-width: 700px) {
     .tittel { top: 3.2rem; }
     .tittel h1 { font-size: 2.2rem; }
-    .blogg { gap: 1.5rem; padding-top: 2.4rem; }
+    .blogg { gap: 1.5rem; padding-top: 1.2rem; }
     .sidemeny { position: static; max-width: none; flex-basis: 100%; }
     .val { flex-direction: row; flex-wrap: wrap; }
     .val button { border-color: rgba(228,234,230,.22); }
