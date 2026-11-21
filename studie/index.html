@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="sw">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>StudyNotes – Rafiki Digital</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+  :root { --furu: #26382F; --lys: #E4EAE6; --sol: #E8C468; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--furu); color: var(--lys);
+         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; padding: 1.5rem; box-sizing: border-box; }
+  main { max-width: 26rem; }
+  h1 { font-weight: 400; font-size: 2rem; margin: 0 0 .4rem; }
+  p { line-height: 1.55; margin: .4rem 0; }
+  a.knapp { display: inline-block; margin-top: 1.2rem; background: var(--sol); color: var(--furu); padding: .9rem 1.6rem;
+            border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+  .liten { font-size: .85rem; opacity: .75; margin-top: 1.6rem; }
+  a.heim { color: var(--lys); }
+</style>
+<script src="adresse.js"></script>
+</head>
+<body>
+<main>
+  <h1>📚 StudyNotes</h1>
+  <div id="klar" hidden>
+    <p>Madokezo, maswali na marudio kwa wanafunzi wa uhasibu.</p>
+    <p><a class="knapp" id="lenke" href="#">Fungua / Open</a></p>
+    <p class="liten">iPhone: Safari → Shiriki → «Add to Home Screen».</p>
+  </div>
+  <div id="snart" hidden>
+    <p>Inakuja hivi karibuni.<br>Coming soon.</p>
+  </div>
+  <p class="liten"><a class="heim" href="../">Rafiki Digital</a></p>
+</main>
+<script>
+  var url = (window.STUDIE_URL || "").trim();
+  if (/^https:\/\//.test(url)) {
+    document.getElementById("klar").hidden = false;
+    document.getElementById("lenke").href = url;
+    location.replace(url);
+  } else {
+    document.getElementById("snart").hidden = false;
+  }
+</script>
+</body>
+</html>
