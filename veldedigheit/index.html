@@ -777,7 +777,7 @@ window.TEKST = {
       /* foto: det første som stort bilete øvst, resten i eit galleri under teksten */
       if (p.foto && p.foto.length) {
         var f0 = p.foto[0], fa = el('a', { class: 'forsidebilete', href: f0.src, target: '_blank', rel: 'noopener' });
-        fa.appendChild(el('img', { src: f0.src, alt: paa(f0.alt).v, loading: 'lazy' }));
+        var im0 = el('img', { src: f0.src, alt: paa(f0.alt).v, loading: 'lazy' }); if (f0.posisjon) im0.style.objectPosition = f0.posisjon; fa.appendChild(im0);
         art.appendChild(fa);
       }
       art.appendChild(meta);

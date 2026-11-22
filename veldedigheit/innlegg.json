@@ -328,6 +328,15 @@
       },
       "foto": [
         {
+          "src": "bilete/shikanda.webp",
+          "alt": {
+            "nn": "Shikanda ved ein vasstank framfor huset",
+            "en": "Shikanda by a water tank in front of the house",
+            "sw": "Shikanda karibu na tangi la maji mbele ya nyumba"
+          },
+          "posisjon": "50% 30%"
+        },
+        {
           "src": "bilete/shikanda-born-1.webp",
           "alt": {
             "nn": "Ein gut i rosa skjorte framfor eit jordhus",
