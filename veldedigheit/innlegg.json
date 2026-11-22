@@ -264,6 +264,50 @@
           "sw": "Fuata St. Anna kwenye Instagram"
         }
       }
+    },
+    {
+      "id": "shikanda-kenya",
+      "dato": "2026-11-22",
+      "kategori": "barnehjem",
+      "land": "kenya",
+      "tittel": {
+        "nn": "Shikanda: lite å gje, men gjev mykje",
+        "en": "Shikanda: little to give, yet gives so much",
+        "sw": "Shikanda: ana kidogo, lakini anatoa mengi"
+      },
+      "ingress": {
+        "nn": "Eg møtte Shikanda då eg reiste til Kenya under koronatida. Med ei løn på kanskje 600 kroner i månaden tek han seg likevel av foreldrelause born.",
+        "en": "I met Shikanda when I travelled to Kenya during the coronavirus pandemic. On a salary of perhaps 600 Norwegian kroner a month, he still takes care of orphaned children.",
+        "sw": "Nilikutana na Shikanda nilipokwenda Kenya wakati wa janga la korona. Kwa mshahara wa takriban kroner 600 za Norwe kwa mwezi, bado anawatunza watoto yatima."
+      },
+      "tekst": {
+        "nn": [
+          "Shikanda jobba som husgut i eitt av husa eg budde i. Eg hadde høyrt om han før eg møtte han: Han var svært religiøs og tok trua si på alvor. Han hadde fasta i over ei veke utan vatn og brød, og han hadde alt hjelpt fleire foreldrelause born.",
+          "Løna hans var kanskje 600 kroner i månaden, men det stoppa han ikkje frå å hjelpe dei som har det minst i samfunnet. Han har hjelpt dei med skulegang, mat og jordbruk. Shikanda har sjølv ein gard der han er sjølvforsynt, og der tek han inn born som får bu hos han. Sjølv om han har lite, gjev han mykje.",
+          "Vi har støtta Shikanda i periodar gjennom mange år, med pengar til mat og skulegang for desse borna. Den store draumen hans er å kunne gje endå fleire born husrom og omsorg. Han har eit hus han ønskjer å gjere ferdig. Då vi møtte han, budde han i eit jordhus, men no er han nesten ferdig med eit murhus.",
+          "Shikanda er trufast med pengane han får, og han vil gjerne kome i kontakt med fleire som har det same hjartet. Du kan nå han på WhatsApp: +254 793 291 061."
+        ],
+        "en": [
+          "Shikanda worked as a houseboy in one of the houses I stayed in. I had heard about him before we met: he was very religious and took his faith seriously. He had fasted for over a week without water or bread, and he had already helped several orphaned children.",
+          "His salary was perhaps 600 Norwegian kroner a month, but that did not stop him from helping those with the least in society. He has helped them with schooling, food and farming. Shikanda has a farm of his own where he is self-sufficient, and there he takes in children who come to live with him. Even though he has little, he gives a lot.",
+          "We have supported Shikanda from time to time over many years, with money for food and schooling for these children. His big dream is to give even more children a home and care. He has a house he wants to finish. When we met him, he lived in a mud house, but now he has almost finished a brick house.",
+          "Shikanda is faithful with the money he receives, and he would love to get in touch with more people who share the same heart. You can reach him on WhatsApp: +254 793 291 061."
+        ],
+        "sw": [
+          "Shikanda alifanya kazi kama mfanyakazi wa nyumbani katika mojawapo ya nyumba nilizoishi. Nilikuwa nimesikia habari zake kabla ya kukutana naye: alikuwa mtu wa dini sana na aliichukulia imani yake kwa uzito. Alikuwa amefunga kwa zaidi ya wiki moja bila maji wala mkate, na tayari alikuwa amewasaidia watoto yatima kadhaa.",
+          "Mshahara wake ulikuwa labda kroner 600 za Norwe kwa mwezi, lakini hilo halikumzuia kuwasaidia walio na kidogo zaidi katika jamii. Amewasaidia kwa elimu, chakula na kilimo. Shikanda ana shamba lake mwenyewe ambapo anajitegemea kwa chakula, na huko huwapokea watoto wanaokuja kuishi naye. Ingawa ana kidogo, anatoa mengi.",
+          "Tumemsaidia Shikanda mara kwa mara kwa miaka mingi, kwa pesa za chakula na shule kwa ajili ya watoto hawa. Ndoto yake kubwa ni kuwapa watoto wengi zaidi makazi na malezi. Ana nyumba anayotaka kuimaliza. Tulipokutana naye aliishi katika nyumba ya udongo, lakini sasa karibu amemaliza nyumba ya matofali.",
+          "Shikanda ni mwaminifu kwa pesa anazopewa, na angependa kuwasiliana na watu wengi zaidi wenye moyo kama wake. Unaweza kumpata kwenye WhatsApp: +254 793 291 061."
+        ]
+      },
+      "lenkje": {
+        "url": "https://wa.me/254793291061",
+        "tekst": {
+          "nn": "Kontakt Shikanda på WhatsApp",
+          "en": "Contact Shikanda on WhatsApp",
+          "sw": "Wasiliana na Shikanda kwenye WhatsApp"
+        }
+      }
     }
   ]
 }
