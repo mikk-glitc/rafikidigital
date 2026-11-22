@@ -721,6 +721,7 @@ window.TEKST = {
 /* Bloggen: innlegga ligg i innlegg.json. Nytt innlegg = nytt objekt i lista "innlegg". */
 (function () {
   var data = null, sort = 'ny', kat = 'alle', land = 'alle';
+  var stille = false;
   var LOCALE = { nn: 'nn-NO', en: 'en-GB', sw: 'sw' };
   var boks = document.getElementById('innlegg');
   var katBoks = document.getElementById('kategoriar');
@@ -800,6 +801,14 @@ window.TEKST = {
           var blogg = document.querySelector('.blogg');
           blogg.classList.toggle('lesemodus', !!boks.querySelector('details[open]'));
           if (d.open && window.innerWidth <= 700) art.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          /* tilbake-knappen: eit ope innlegg får eiga adresse (#id), så «tilbake» lukkar det og
+             viser lista over innlegg i staden for å gå ut av sida */
+          if (stille) return;
+          if (d.open && location.hash !== '#' + p.id) history.pushState({ post: p.id }, '', '#' + p.id);
+          else if (!d.open && location.hash === '#' + p.id) {
+            if (history.state && history.state.post === p.id) history.back();
+            else history.replaceState(null, '', location.pathname + location.search);
+          }
         });
         x.v.forEach(function (avsnitt) { d.appendChild(el('p', {}, avsnitt)); });
         if (p.foto && p.foto.length > 1) {
@@ -833,6 +842,22 @@ window.TEKST = {
   });
   document.addEventListener('sprak', teikn);
 
+  /* tilbake og fram i nettlesaren: opne innlegget i adressa, lukk dei andre */
+  window.addEventListener('popstate', function () {
+    if (!data) return;
+    var id = decodeURIComponent(location.hash.slice(1)), mal = null;
+    stille = true;
+    boks.querySelectorAll('article.post').forEach(function (a) {
+      var d = a.querySelector('details'); if (!d) return;
+      if (a.id === id) { d.open = true; mal = a; }
+      else if (d.open) { d.open = false; if (!id) mal = a; }
+    });
+    setTimeout(function () {
+      stille = false;
+      if (mal) mal.scrollIntoView({ block: 'start' });
+    }, 50);
+  });
+
   fetch('innlegg.json', { cache: 'no-cache' }).then(function (r) { return r.json(); })
     .then(function (j) {
       data = j;
@@ -843,8 +868,12 @@ window.TEKST = {
       teikn();
       var art = post && document.getElementById(id);
       if (art) {
+        /* kom ein rett til eit innlegg, legg lista inn bak det i historikken, så «tilbake» viser lista */
+        history.replaceState(null, '', location.pathname + location.search);
+        history.pushState({ post: id }, '', '#' + id);
+        stille = true;
         var d = art.querySelector('details'); if (d) d.open = true;
-        setTimeout(function () { art.scrollIntoView({ block: 'start' }); }, 300);
+        setTimeout(function () { stille = false; art.scrollIntoView({ block: 'start' }); }, 300);
       }
     })
     .catch(function () { boks.appendChild(el('p', { class: 'tomt' }, 'Kunne ikkje hente innlegga.')); });
