@@ -78,6 +78,13 @@
   .post details summary::-webkit-details-marker { display: none; }
   .post details[open] summary { margin-bottom: .4rem; }
   .tomt { color: #A9BDB2; font-style: italic; }
+  .post .forsidebilete { display: block; margin: -1.4rem -1.5rem 1.1rem; border-radius: 14px 14px 0 0; overflow: hidden; }
+  .post .forsidebilete img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .galleri { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: .6rem; margin: 1rem 0 .4rem; }
+  .galleri a { display: block; border-radius: 10px; overflow: hidden; }
+  .galleri img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform .3s; }
+  .galleri a:hover img { transform: scale(1.04); }
+  .galleri a:focus-visible { outline: 2px solid var(--sol); outline-offset: 2px; }
   .post .bilete { display: flex; gap: .6rem; margin: .4rem 0 .9rem; }
   .post .bilete img { flex: 1 1 0; min-width: 0; max-width: 11rem; height: auto; border-radius: 12px; border: 1px solid rgba(228,234,230,.2); }
   .post .nedlast { display: inline-block; margin: 0 0 .7rem; padding: .5rem 1.1rem; border-radius: 999px; background: #F2F4F1; color: #26382F; text-decoration: none; font-weight: 600; }
@@ -753,7 +760,7 @@ window.TEKST = {
     boks.textContent = '';
     data.innlegg.forEach(function (p, n) { p._n = n; });
     function nyast(a, b) { return b.dato.localeCompare(a.dato) || b._n - a._n; }
-    var liste = data.innlegg.filter(function (p) { return (kat === 'alle' || p.kategori === kat) && (land === 'alle' || p.land === land); });
+    var liste = data.innlegg.filter(function (p) { return (kat === 'alle' || p.kategori === kat || (p.ogsa || []).indexOf(kat) > -1) && (land === 'alle' || p.land === land); });
     if (kat === 'alle' && land === 'alle') {
       /* utan vald fane: berre dei 10 siste innlegga; eldre finn ein under fanene */
       liste = liste.slice().sort(nyast).slice(0, 10);
@@ -766,6 +773,13 @@ window.TEKST = {
       meta.appendChild(el('time', { datetime: p.dato }, dato(p.dato)));
       if (data.kategoriar[p.kategori]) meta.appendChild(el('span', { class: 'kat' }, paa(data.kategoriar[p.kategori]).v));
       var uk = (data.underkategoriar || {})[p.kategori]; if (uk && uk[p.land]) meta.appendChild(el('span', { class: 'kat' }, paa(uk[p.land]).v));
+      (p.ogsa || []).forEach(function (k) { if (data.kategoriar[k]) meta.appendChild(el('span', { class: 'kat' }, paa(data.kategoriar[k]).v)); });
+      /* foto: det første som stort bilete øvst, resten i eit galleri under teksten */
+      if (p.foto && p.foto.length) {
+        var f0 = p.foto[0], fa = el('a', { class: 'forsidebilete', href: f0.src, target: '_blank', rel: 'noopener' });
+        fa.appendChild(el('img', { src: f0.src, alt: paa(f0.alt).v, loading: 'lazy' }));
+        art.appendChild(fa);
+      }
       art.appendChild(meta);
       var t = paa(p.tittel), i = paa(p.ingress), x = paa(p.tekst);
       if (!t.ok || !x.ok) { art.appendChild(el('p', { class: 'merknad' }, tx('ikkje'))); }
@@ -788,6 +802,15 @@ window.TEKST = {
           if (d.open && window.innerWidth <= 700) art.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
         x.v.forEach(function (avsnitt) { d.appendChild(el('p', {}, avsnitt)); });
+        if (p.foto && p.foto.length > 1) {
+          var g = el('div', { class: 'galleri' });
+          p.foto.slice(1).forEach(function (b) {
+            var a = el('a', { href: b.src, target: '_blank', rel: 'noopener' });
+            a.appendChild(el('img', { src: b.src, alt: paa(b.alt).v, loading: 'lazy' }));
+            g.appendChild(a);
+          });
+          d.appendChild(g);
+        }
         art.appendChild(d);
       }
       boks.appendChild(art);
