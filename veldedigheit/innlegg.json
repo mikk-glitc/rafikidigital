@@ -188,19 +188,22 @@
           "Vi fekk leike, spele fotball og gå på oppdagingsferd saman med dei.",
           "St. Anna vart starta av Angelica frå Tyskland. Ho bur der og driv barneheimen. Ho starta med sju born, og no tek ho seg av rundt 40 born og unge vaksne. St. Anna har berga mange born ut av svært vanskelege situasjonar. Å sjå gleda, freden og utstrålinga til borna var ei utruleg sterk oppleving, særleg når ein veit at livet deira kunne vore heilt annleis om ingen hadde stige fram og gjort ein skilnad.",
           "St. Anna tek gjerne imot hjelp i form av mat, gåver og liknande. Du kan mellom anna støtte eit barn med skulepengar. Borna set stor pris på besøk og vil gjerne bli kjende med dei som kjem. Dei har òg eigne, fine gjesterom. Der kan du bu tett på borna og dele kvardagen med dei. Det kan vere ekstra kjekt å bli kjend med barnet du støttar.",
-          "Følg dei på Instagram, eller send meg ein Vipps. Har du tenkt på å bli fadder for eit barn, kan dette vere ein fin sjanse til å støtte eit fantastisk prosjekt, driven av menneske som vier livet sitt til å oppfostre dei mest sårbare i samfunnet: dei utan far, dei utan mor, med den lengten vi alle deler etter kjærleik, ein stad å finne fred og ein heim. Om gåva er stor eller lita, blir ho sett stor pris på uansett."
+          "Følg dei på Instagram. Har du tenkt på å bli fadder for eit barn, kan dette vere ein fin sjanse til å støtte eit fantastisk prosjekt, driven av menneske som vier livet sitt til å oppfostre dei mest sårbare i samfunnet: dei utan far, dei utan mor, med den lengten vi alle deler etter kjærleik, ein stad å finne fred og ein heim. Om gåva er stor eller lita, blir ho sett stor pris på uansett.",
+          "Ver velsigna."
         ],
         "en": [
           "We got to play, play football and go exploring with them.",
           "St. Anna was established by Angelica from Germany. She lives there and runs it. She started with seven children and now takes care of around 40 children and young adults. St. Anna has rescued many children from incredibly difficult situations. Seeing the joy, peace and radiance of the children was an amazingly strong and powerful experience, especially when you know their lives could have been very different if someone had not stepped in and made a difference.",
           "St. Anna warmly welcomes help in the form of food, gifts and the like. Among other things, you can support a child with school fees. These children deeply appreciate visitors and want to get to know those who visit. They also have their own nice guest facilities. Here you can stay close to the children and share everyday life with them. Getting to know the child you support can be especially fun.",
-          "Follow them on Instagram, or Vipps me. If you have been thinking about sponsoring a child, this could be a great opportunity to support an incredible project run by people who lay down their lives to raise the most vulnerable in society: those without a father, those without a mother, with the longing we all share for love, a place to find peace, and a home. Whether the gift is big or small, it is deeply appreciated either way."
+          "Follow them on Instagram. If you have been thinking about sponsoring a child, this could be a great opportunity to support an incredible project run by people who lay down their lives to raise the most vulnerable in society: those without a father, those without a mother, with the longing we all share for love, a place to find peace, and a home. Whether the gift is big or small, it is deeply appreciated either way.",
+          "Be blessed."
         ],
         "sw": [
           "Tulipata kucheza, kucheza mpira wa miguu na kwenda kugundua mazingira pamoja nao.",
           "St. Anna kilianzishwa na Angelica kutoka Ujerumani. Anaishi hapo na anakiendesha. Alianza na watoto saba, na sasa anawatunza takriban watoto na vijana 40. St. Anna kimewaokoa watoto wengi kutoka katika hali ngumu sana. Kuona furaha, amani na mng'ao wa watoto ilikuwa uzoefu wenye nguvu kubwa, hasa unapojua kwamba maisha yao yangeweza kuwa tofauti kabisa kama mtu asingejitokeza na kuleta mabadiliko.",
           "St. Anna kinakaribisha kwa moyo mkunjufu msaada wa chakula, zawadi na vitu vingine. Miongoni mwa mambo mengine, unaweza kumsaidia mtoto kwa ada ya shule. Watoto hawa wanathamini sana wageni na wanapenda kuwafahamu wanaowatembelea. Pia wana vyumba vyao vizuri vya wageni. Hapo unaweza kukaa karibu na watoto na kushiriki maisha yao ya kila siku. Kumfahamu mtoto unayemsaidia kunaweza kuwa jambo la kufurahisha sana.",
-          "Wafuate kwenye Instagram, au nitumie mchango kwa Vipps. Kama umekuwa ukifikiria kumdhamini mtoto, hii inaweza kuwa fursa nzuri ya kusaidia mradi wa ajabu unaoendeshwa na watu wanaojitoa maisha yao kuwalea walio hatarini zaidi katika jamii: wasio na baba, wasio na mama, wenye shauku tunayoishiriki sote ya upendo, mahali pa kupata amani, na nyumbani. Zawadi iwe kubwa au ndogo, inathaminiwa sana kwa vyovyote vile."
+          "Wafuate kwenye Instagram. Kama umekuwa ukifikiria kumdhamini mtoto, hii inaweza kuwa fursa nzuri ya kusaidia mradi wa ajabu unaoendeshwa na watu wanaojitoa maisha yao kuwalea walio hatarini zaidi katika jamii: wasio na baba, wasio na mama, wenye shauku tunayoishiriki sote ya upendo, mahali pa kupata amani, na nyumbani. Zawadi iwe kubwa au ndogo, inathaminiwa sana kwa vyovyote vile.",
+          "Ubarikiwe."
         ]
       },
       "foto": [
@@ -252,7 +255,15 @@
             "sw": "Njiani kwa bajaji tukiwa na mahitaji kwa ajili ya St. Anna"
           }
         }
-      ]
+      ],
+      "lenkje": {
+        "url": "https://www.instagram.com/st.annachildrenshome_orphanage/",
+        "tekst": {
+          "nn": "Følg St. Anna på Instagram",
+          "en": "Follow St. Anna on Instagram",
+          "sw": "Fuata St. Anna kwenye Instagram"
+        }
+      }
     }
   ]
 }
