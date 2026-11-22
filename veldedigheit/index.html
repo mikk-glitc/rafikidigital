@@ -834,7 +834,19 @@ window.TEKST = {
   document.addEventListener('sprak', teikn);
 
   fetch('innlegg.json', { cache: 'no-cache' }).then(function (r) { return r.json(); })
-    .then(function (j) { data = j; teikn(); })
+    .then(function (j) {
+      data = j;
+      /* lenkje rett til eit innlegg: /veldedigheit/#innlegg-id opnar det */
+      var id = decodeURIComponent(location.hash.slice(1));
+      var post = id && data.innlegg.filter(function (p) { return p.id === id; })[0];
+      if (post) { kat = post.kategori; land = post.land || 'alle'; }
+      teikn();
+      var art = post && document.getElementById(id);
+      if (art) {
+        var d = art.querySelector('details'); if (d) d.open = true;
+        setTimeout(function () { art.scrollIntoView({ block: 'start' }); }, 300);
+      }
+    })
     .catch(function () { boks.appendChild(el('p', { class: 'tomt' }, 'Kunne ikkje hente innlegga.')); });
 })();
 </script>
